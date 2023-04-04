@@ -1,14 +1,18 @@
+<script setup>
+	import LogoUFU from '../components/LogoUFU.vue';
+	import ArrowIcon from '../components/icons/ArrowIcon.vue';
+</script>
+
 <template>
-	<body>
+	<div>
 		<div class="container-fluid px-0">
 			<div class="row g-0">
 
-				<!-- First column -->
+				<!-- Formulário -->
 				<div class="col-lg-6 vh-100">
 					<div id="formulario">
-						<div id="logo-ufu">
-							<img src="../assets/logo-ufu.png" alt="Logo UFU" width="415" height="62">
-						</div>
+						
+						<LogoUFU></LogoUFU>
 						
 						<div id="login-form">
 							<div id="titulo">
@@ -19,38 +23,48 @@
 							
 							<form>
 								<div class="form-floating mb-3">
-									<input type="email" class="form-control" id="email" placeholder="Email Insitucional">
-									<label for="email"> Email Institucional </label>
+									<input type="email" class="form-control" id="email" placeholder="Email Institucional">
+									<label for="email"><b>Email Institucional</b></label>
 								</div>
 								<div class="form-floating">
 									<input type="text" class="form-control" id="senha" placeholder="Senha">
-									<label for="senha"> Senha </label>
+									<label for="senha"><b>Senha</b></label>
 								</div>
-								<div id="butao-login">
-									<a class="btn text-black" style="background-color: #f1f1f1;" href="#!" role="button">
-										Entrar
-  										<i class="fab fa-facebook-f"></i>
-									</a>
+
+								<a class="btn text-black" role="button" id="entrar">
+									<b>Entrar</b> <ArrowIcon></ArrowIcon>
+								</a>
+							
+								<div>
+									<div id="redefinir-senha">
+										<a href="" class="link">
+											Esqueceu sua senha? 
+										</a>
+									</div>
+									
+									<div>
+										<a href="/cadastro" class="link">
+											Não possui conta? Cadastre-se. 
+										</a>
+									</div>
 								</div>
-								<div id="cadastro">
-									<a>Não possui conta? Cadastre-se</a>
-								</div>
+
 							</form>
 						</div>
 					</div>
 				</div>
-				<!-- First column -->
+				<!-- Formulário -->
 
-				<!-- Second column -->
+				<!-- Banner -->
 				<div class="col-lg-6 vh-100">
 					<div id="banner">
 						<img src="../assets/cloud.jpg" alt="nuvem de dados" height="650">
 					</div>
 				</div>
-				<!-- Second column -->
+				<!-- Banner -->
 			</div>
 		</div>
-	</body>
+	</div>
 </template>
 
 <style>
@@ -64,10 +78,6 @@
 		margin-right: 300px;
 	}
 
-	#logo-ufu{
-		margin-top: 50px;
-	}
-
 	#login-form{
 		margin-top: 60px;
 		margin-left: 140px;
@@ -75,7 +85,24 @@
 	}
 
 	.form-control{
-		color: #38b6ff;
+		border: #010214;
+		color: black;
+		background-color: #38b6ff;
+	}
+
+	.form-control:focus{
+		background-color: #38b6ff;
+	}
+
+	#entrar{
+		width: 250px;
+		height: 40px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		padding: 6px;
+		border-radius: 5px;
+		background-color: #f1f1f1;
+		text-align: center;
 	}
 
 	#titulo{
@@ -89,12 +116,22 @@
 		font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 	}
 
-	#cadastro{
+	.link{
 		margin-top: 10px;
+		margin-left: 15px;
 		color: #a63535;
-		text-align: center;
+		text-decoration: none;
 	}
 
+	.link:hover{
+		background-color: #010214;
+		color: #38b6ff;
+	}
+
+	#redefinir-senha{
+		margin-left: 34px;
+	}
+	
 	#banner{
 		width: 500px;
 		margin-left: 200px;
