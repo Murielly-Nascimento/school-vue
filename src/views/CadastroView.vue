@@ -1,109 +1,88 @@
 <script setup>
 	import LogoUFU from '../components/LogoUFU.vue';
-	import ArrowIcon from '../components/icons/ArrowIcon.vue';
+	import FiosDireita from '../components/Cadastro/FiosDireita.vue'
+	import FiosEsquerda from '../components/Cadastro/FiosEsquerda.vue'
 </script>
 
 <template>
-	<div>
-		<div class="fios-direita">
-			<img src="../assets/wires-right.png" alt="fios" width="340" height="160">
-		</div>
+	<FiosDireita></FiosDireita>
 
-		<div>	
+	<div class="container">	
+		<div class="row d-flex justify-content-center">
+
 			<!-- Formulário -->	
-			<div id="formulario">
-				
-				<div id="logo-ufu">
-					<img src="../assets/logo-ufu.png" alt="Logo UFU" width="286" height="43">
-				</div>
-				
-				<div id="cadastro-form">
-					<div id="titulo">
+			<div class="col-md-6">
+
+				<LogoUFU></LogoUFU>
+
+				<div class="formulario">
+					<header class="form-titulo">
 						<h1><b>Cadastre-se</b></h1>
-						<p>Bem vindo ao repositório de<br> 
-							conteúdos da FACOM, Bacharelado<br> 
-							em Sistemas de Informação (BSI)</p>
-					</div>
-					
+						<p>Bem vindo ao repositório de conteúdos da FACOM,<br> 
+							Bacharelado em Sistemas de Informação (BSI)</p>
+					</header>
+						
 					<form>
-						<div class="form-floating mb-3">
+						<div class="form-floating m-2">
 							<input type="text" class="form-control" id="nome" placeholder="Nome">
 							<label for="nome"><b>Nome</b></label>
 						</div>
-						<div class="form-floating mb-3">
+						<div class="form-floating m-2">
 							<input type="text" class="form-control" id="matricula" placeholder="Matricula">
 							<label for="matricula"><b>Matrícula</b></label>
 						</div>
-						<div class="form-floating mb-3">
+						<div class="form-floating m-2">
 							<input type="email" class="form-control" id="email" placeholder="Email Institucional">
 							<label for="email"><b>Email Institucional</b></label>
 						</div>
-						<div class="form-floating">
+						<div class="form-floating m-2">
 							<input type="text" class="form-control" id="senha" placeholder="Senha">
 							<label for="senha"><b>Senha</b></label>
 						</div>
 
-						<div>
-							<a class="btn text-black" role="button">
-								<b>Salvar</b> <ArrowIcon></ArrowIcon>
-							</a>
-						</div>
-
-						<div>
-							<a href="/" class="link">
-								Já possui conta? Logar. 
-							</a>
-						</div>
-
+						<div class="row">
+							<div class="col">
+								<a class="btn btn-salvar" href="\" role="button">
+									<font-awesome-icon icon="fa-solid fa-arrow-left" /> <b>Logar</b> 
+								</a>
+							</div>
+							<div class="col">
+								<a class="btn btn-salvar" href="/home" role="button">
+									<b>Salvar</b> <font-awesome-icon icon="fa-solid fa-arrow-right" />
+								</a>
+							</div>
+						</div>  
 					</form>
 				</div>
 			</div>
 			<!-- Formulário -->
 		</div>
-
-		<div class="fios-esquerda">
-			<img src="../assets/wires-left.png" alt="fios" width="340" height="160">
-		</div>
 	</div>
+	<FiosEsquerda></FiosEsquerda>
 </template>
 
 <style>
 	body{
 		background-color: #0a223c;
+		font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+		text-align: center;
 	}
 
-	#logo-ufu{
-		margin-left: 70px;
+	.formulario{
+		margin-top: 50px;
 	}
 
-	.fios-direita{
-		position: fixed;
-		top: 0;
-		left: 0;
+	.form-titulo{
+		color: white;
 	}
 
-	.fios-esquerda{
-		position: fixed;
-		bottom: 0;
-		right: 0;
-	}
-
-	#formulario{
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-	}
-
-	#cadastro-form{
-		margin-top: 30px;
-		margin-left: 100px;
-		width: 250px;
+	.form-titulo h1{
+		font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+		color:#38b6ff;
 	}
 
 	.form-control{
 		border: #010214;
-		color: black;
 		background-color: #38b6ff;
 	}
 
@@ -111,40 +90,19 @@
 		background-color: #38b6ff;
 	}
 
-	.btn{
-		width: 250px;
-		height: 40px;
-		margin-top: 10px;
-		margin-bottom: 10px;
-		padding: 6px;
-		border-radius: 5px;
-		background-color: #f1f1f1;
-		text-align: center;
-	}
-	.btn:hover{
-		background-color: #f1f1f1;
-	}
-
-	#titulo{
-		text-align: center;
-		color: white;
-		margin-bottom: 25px;
-	}
-	#titulo h1{
-		color: #38b6ff;
-		margin-bottom: 15px;
-		font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-	}
-
-	.link{
-		margin-top: 10px;
-		margin-left: 45px;
-		color: #a63535;
-		text-decoration: none;
-	}
-
-	.link:hover{
+	.btn-salvar{
+		border-radius: 30px;
+		border-style: solid;
+		border-color: #38b6ff;
 		background-color: #0a223c;
 		color: #38b6ff;
+		margin-top: 20px;
+		padding: 10px;
+		width: 200px;
+	}
+
+	.btn-salvar:hover{
+		background-color: #38b6ff;
+		color: #010214;
 	}
 </style>

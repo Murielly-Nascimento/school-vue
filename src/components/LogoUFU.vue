@@ -1,6 +1,6 @@
 <template>
 	<div id="logo-ufu">
-		<img src="../assets/logo-ufu.png" alt="Logo UFU" width="415" height="62">
+		<img src="../assets/img/logo-ufu.png" alt="Logo UFU" width="286" height="43">
 	</div>
 </template>
 
