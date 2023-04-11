@@ -12,7 +12,32 @@ const router = createRouter({
       path: '/cadastro',
       name: 'cadastro',
       component: () => import('../views/CadastroView.vue')
-    }
+    },
+	{
+		path: '/home',
+		name: 'home',
+		component: () => import('../views/HomeView.vue')
+	},
+	{
+		path: '/gradeCurricular',
+		name: 'gradeCurricular',
+		component: () => import('../views/GradeCurricularView.vue')
+	},
+	{
+		path: '/docentes',
+		name: 'docentes',
+		component: () => import('../views/DocentesView.vue')
+	},
+	{
+		path: '/contato',
+		name: 'contato',
+		component: () => import('../views/ContatoView.vue')
+	},
+	{
+		path: '/perfil',
+		name: 'perfil',
+		component: () => import('../views/PerfilView.vue')
+	}
   ]
 })
 

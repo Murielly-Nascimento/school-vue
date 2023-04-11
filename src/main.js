@@ -6,7 +6,26 @@ import './assets/main.css'
 import "../node_modules/bootstrap/dist/css/bootstrap.css"
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle"
 
+/* import the fontawesome core */
+import { library } from '@fortawesome/fontawesome-svg-core'
+
+/* import font awesome icon component */
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+/* import specific icons */
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { faCircleUser } from '@fortawesome/free-solid-svg-icons'
+import { faPersonThroughWindow } from '@fortawesome/free-solid-svg-icons'
+
+/* add icons to the library */
+library.add(faArrowRight)
+library.add(faArrowLeft)
+library.add(faCircleUser)
+library.add(faPersonThroughWindow)
 const app = createApp(App)
+
+app.component('font-awesome-icon', FontAwesomeIcon)
 
 app.use(router)
 

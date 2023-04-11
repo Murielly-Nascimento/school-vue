@@ -1,68 +1,70 @@
 <script setup>
 	import LogoUFU from '../components/LogoUFU.vue';
-	import ArrowIcon from '../components/icons/ArrowIcon.vue';
 </script>
 
 <template>
-	<div>
-		<div class="container-fluid px-0">
-			<div class="row g-0">
+	<div class="container">
+		<div class="row">
 
-				<!-- Formulário -->
-				<div class="col-lg-6 vh-100">
-					<div id="formulario">
-						
-						<LogoUFU></LogoUFU>
-						
-						<div id="login-form">
-							<div id="titulo">
-								<h1><b>Login</b></h1>
-								<p>Bem vindo de volta ao repositório de conteúdos da FACOM,<br> 
-									Bacharelado em Sistemas de Informação (BSI)</p>
-							</div>
-							
-							<form>
-								<div class="form-floating mb-3">
+			<!-- Formulário -->
+			<div class="col-md-6">
+				<LogoUFU></LogoUFU>
+				
+				<div class="formulario">
+					<header class="form-titulo">
+						<h1><b>Login</b></h1>
+						<p>Bem vindo de volta ao repositório<br>
+							de conteúdos da FACOM, Bacharelado<br>
+							em Sistemas de Informação (BSI)</p>
+					</header>
+					
+					<form class="mx-auto col-10 col-md-8 col-lg-6">
+						<div class="row">
+							<div class="col">
+								<div class="form-floating m-1">
 									<input type="email" class="form-control" id="email" placeholder="Email Institucional">
 									<label for="email"><b>Email Institucional</b></label>
 								</div>
-								<div class="form-floating">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<div class="form-floating m-1">
 									<input type="text" class="form-control" id="senha" placeholder="Senha">
 									<label for="senha"><b>Senha</b></label>
 								</div>
-
-								<a class="btn text-black" role="button" id="entrar">
-									<b>Entrar</b> <ArrowIcon></ArrowIcon>
-								</a>
-							
-								<div>
-									<div id="redefinir-senha">
-										<a href="" class="link">
-											Esqueceu sua senha? 
-										</a>
-									</div>
-									
-									<div>
-										<a href="/cadastro" class="link">
-											Não possui conta? Cadastre-se. 
-										</a>
-									</div>
-								</div>
-
-							</form>
+							</div>
 						</div>
-					</div>
-				</div>
-				<!-- Formulário -->
 
-				<!-- Banner -->
-				<div class="col-lg-6 vh-100">
-					<div id="banner">
-						<img src="../assets/cloud.jpg" alt="nuvem de dados" height="650">
-					</div>
+						<div class="row m-1">
+							<a class="btn text-black btn-salvar" role="button">
+								<b>Entrar</b> <font-awesome-icon icon="fa-solid fa-arrow-right" />
+							</a>
+						</div>
+					
+						<div class="row m-2">
+							<a href="" class="link">
+								Esqueceu sua senha? 
+							</a>
+						</div>
+						
+						<div class="row m-3">
+							<a class="btn" role="button" href="/cadastro" id="btn-cadastrar">
+								<b>Cadastrar</b> 
+							</a>
+						</div>
+					</form>
 				</div>
-				<!-- Banner -->
 			</div>
+			<!-- Formulário -->
+
+			<!-- Banner -->
+			<div class="col-md-6">
+				<div id="banner">
+					<img src="../assets/img/cloud.jpg" alt="nuvem de dados" height="650">
+				</div>
+			</div>
+			<!-- Banner -->
 		</div>
 	</div>
 </template>
@@ -73,20 +75,22 @@
 		font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 	}
 
-	#formulario{
-		width: 500px;
-		margin-right: 300px;
+	.formulario{
+		margin-top: 50px;
+		text-align: center;
 	}
 
-	#login-form{
-		margin-top: 60px;
-		margin-left: 140px;
-		width: 250px;
+	.form-titulo{
+		color: white;
+	}
+
+	.form-titulo h1{
+		font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+		color:#38b6ff;
 	}
 
 	.form-control{
 		border: #010214;
-		color: black;
 		background-color: #38b6ff;
 	}
 
@@ -94,31 +98,19 @@
 		background-color: #38b6ff;
 	}
 
-	#entrar{
-		width: 250px;
-		height: 40px;
-		margin-top: 10px;
-		margin-bottom: 10px;
-		padding: 6px;
+	.btn-salvar{
 		border-radius: 5px;
 		background-color: #f1f1f1;
 		text-align: center;
+		padding: 10px;
 	}
 
-	#titulo{
-		text-align: center;
-		color: white;
-		margin-bottom: 30px;
-	}
-	#titulo h1{
-		color: #38b6ff;
-		margin-bottom: 20px;
-		font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	.btn-salvar:hover{
+		background-color: #38b6ff;
+		border-color: blue;
 	}
 
 	.link{
-		margin-top: 10px;
-		margin-left: 15px;
 		color: #a63535;
 		text-decoration: none;
 	}
@@ -128,12 +120,17 @@
 		color: #38b6ff;
 	}
 
-	#redefinir-senha{
-		margin-left: 34px;
+	#btn-cadastrar{
+		border-radius: 30px;
+		border-style: solid;
+		border-color: #38b6ff;
+		background-color: #010214;
+		color: #38b6ff;
+		padding: 10px;
 	}
-	
-	#banner{
-		width: 500px;
-		margin-left: 200px;
+	#btn-cadastrar:hover{
+		background-color: #38b6ff;
+		color: #010214;
 	}
+
 </style>
