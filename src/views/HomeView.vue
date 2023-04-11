@@ -1,13 +1,11 @@
 <script setup>
-
+	import LogoUFU from '../components/LogoUFU.vue';
 </script>
 
 <template>
 	<div class="row">
 		<div class="col">
-			<div id="logo-ufu">
-				<img src="../assets/img/logo-ufu.png" alt="Logo UFU" width="286" height="43">
-			</div>
+			<LogoUFU></LogoUFU>
 
 			<div class="banner">
 				<img src="../assets/img/computador.png" alt="computador" width="661" height="500">
@@ -17,7 +15,7 @@
 			<header>
 				<nav>
 					<a href="/home">Home</a>
-					<a href="/grade">Grade Curricular</a>
+					<a href="/gradeCurricular">Grade Curricular</a>
 					<a href="/docentes">Docentes</a>
 					<a href="/contato">Contato</a>
 					<a href="/perfil" id="perfil">
@@ -27,8 +25,7 @@
 			</header>
 			<div id="conteudo">
 				<header class="titulo">
-					<h1><b>Sistemas de<br> 
-						Informação</b></h1>
+					<h1><b>Sistemas de Informação</b></h1>
 					<hr>
 				</header>
 				<section>
@@ -47,7 +44,7 @@
 						</p>
 					</article>
 					<div>
-						<a class="btn btn-salvar" role="button" href="/grade">
+						<a class="btn btn-salvar" role="button" href="/gradeCurricular">
 							<b>Saiba Mais</b> <font-awesome-icon icon="fa-solid fa-arrow-right" />
 						</a>
 					</div>
