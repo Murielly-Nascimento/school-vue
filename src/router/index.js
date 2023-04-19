@@ -37,6 +37,11 @@ const router = createRouter({
 		path: '/perfil',
 		name: 'perfil',
 		component: () => import('../views/PerfilView.vue')
+	},
+	{
+		path:'/materia',
+		name: 'materia',
+		component: () => import('../views/MateriaView.vue')
 	}
   ]
 })

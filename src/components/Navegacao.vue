@@ -15,7 +15,7 @@
 					<a href="/gradeCurricular">Grade Curricular</a>
 					<a href="/docentes">Docentes</a>
 					<a href="/contato">Contato</a>
-					<a href="/perfil" style="color: #38b6ff; font-size: 1.8em;">
+					<a style="color: #38b6ff; font-size: 1.8em;">
 						<font-awesome-icon icon="fa-solid fa-circle-user"/>
 					</a>
 				</nav>
