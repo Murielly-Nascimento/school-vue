@@ -1,5 +1,5 @@
 <script setup>
-	import Cabecalho from '../components/Adicionar/Cabecalho.vue';
+	import Cabecalho from '../components/Disciplina/Cabecalho.vue';
 </script>
 
 <template>

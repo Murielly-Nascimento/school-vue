@@ -7,7 +7,7 @@
 				</a>
 				<div class="collapse" id="collapseMaterias">
 					<div class="lista" v-for="disciplina in primeiroPeriodo" :key="disciplina.id">
-						<RouterLink :to="'/documentos/' + disciplina.id">
+						<RouterLink :to="'/disciplina/' + disciplina.id">
 							{{ disciplina.nome }}
 						</RouterLink>	
 					</div>
@@ -19,7 +19,7 @@
 				</a>
 				<div class="collapse" id="collapseMaterias2">
 					<div class="lista" v-for="disciplina in segundoPeriodo" :key="disciplina.id">
-						<RouterLink :to="'/documentos/' + disciplina.id">
+						<RouterLink :to="'/disciplina/' + disciplina.id">
 							{{ disciplina.nome }}
 						</RouterLink>	
 					</div>
@@ -31,7 +31,7 @@
 				</a>
 				<div class="collapse" id="collapseMaterias3">
 					<div class="lista" v-for="disciplina in terceiroPeriodo" :key="disciplina.id">
-						<RouterLink :to="'/documentos/' + disciplina.id">
+						<RouterLink :to="'/disciplina/' + disciplina.id">
 							{{ disciplina.nome }}
 						</RouterLink>	
 					</div>
@@ -43,7 +43,7 @@
 				</a>
 				<div class="collapse" id="collapseMaterias4">
 					<div class="lista" v-for="disciplina in quartoPeriodo" :key="disciplina.id">
-						<RouterLink :to="'/documentos/' + disciplina.id">
+						<RouterLink :to="'/disciplina/' + disciplina.id">
 							{{ disciplina.nome }}
 						</RouterLink>	
 					</div>
@@ -55,7 +55,7 @@
 				</a>
 				<div class="collapse" id="collapseMaterias5">
 					<div class="lista" v-for="disciplina in quintoPeriodo" :key="disciplina.id">
-						<RouterLink :to="'/documentos/' + disciplina.id">
+						<RouterLink :to="'/disciplina/' + disciplina.id">
 							{{ disciplina.nome }}
 						</RouterLink>	
 					</div>
@@ -67,7 +67,7 @@
 				</a>
 				<div class="collapse" id="collapseMaterias6">
 					<div class="lista" v-for="disciplina in sextoPeriodo" :key="disciplina.id">
-						<RouterLink :to="'/documentos/' + disciplina.id">
+						<RouterLink :to="'/disciplina/' + disciplina.id">
 							{{ disciplina.nome }}
 						</RouterLink>	
 					</div>
@@ -79,7 +79,7 @@
 				</a>
 				<div class="collapse" id="collapseMaterias7">
 					<div class="lista" v-for="disciplina in setimoPeriodo" :key="disciplina.id">
-						<RouterLink :to="'/documentos/' + disciplina.id">
+						<RouterLink :to="'/disciplina/' + disciplina.id">
 							{{ disciplina.nome }}
 						</RouterLink>	
 					</div>
@@ -91,7 +91,7 @@
 				</a>
 				<div class="collapse" id="collapseMaterias8">
 					<div class="lista" v-for="disciplina in oitavoPeriodo" :key="disciplina.id">
-						<RouterLink :to="'/documentos/' + disciplina.id">
+						<RouterLink :to="'/disciplina/' + disciplina.id">
 							{{ disciplina.nome }}
 						</RouterLink>	
 					</div>

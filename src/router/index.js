@@ -24,19 +24,8 @@ const router = createRouter({
 		component: () => import('../views/GradeCurricularView.vue')
 	},
 	{
-		path: '/documentos/:id',
-		name: 'documentos',
-		component: () => import('../views/DocumentosView.vue')
-	},
-	{
-		path: '/ementa/:id',
-		name:'ementa',
-		component: () => import('../views/EmentaView.vue')
-	},
-	{
-		path: '/adicionar/:id',
-		name:'adicionar',
-		component: () => import('../views/AdicionarView.vue')
+		path: '/disciplina/:id',
+		component: () => import('../views/DisciplinaView.vue')
 	},
 	{
 		path: '/docentes',
