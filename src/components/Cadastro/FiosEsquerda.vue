@@ -1,6 +1,6 @@
 <template>
 	<div id="fios-esquerda">
-		<img src="./wires-left.png" alt="fios" width="340" height="160">
+		<img src="../../assets/img/wires-left.png" alt="fios" width="340" height="160">
 	</div>
 </template>
 

@@ -17,11 +17,15 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { faCircleUser } from '@fortawesome/free-solid-svg-icons'
 import { faPersonThroughWindow } from '@fortawesome/free-solid-svg-icons'
+import { faDownload } from '@fortawesome/free-solid-svg-icons'
+import { faLink } from '@fortawesome/free-solid-svg-icons'
 
 /* add icons to the library */
 library.add(faArrowRight)
 library.add(faArrowLeft)
 library.add(faCircleUser)
+library.add(faDownload)
+library.add(faLink)
 library.add(faPersonThroughWindow)
 const app = createApp(App)
 
@@ -30,3 +34,6 @@ app.component('font-awesome-icon', FontAwesomeIcon)
 app.use(router)
 
 app.mount('#app')
+
+
+  

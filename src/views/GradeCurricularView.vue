@@ -1,6 +1,6 @@
 <script setup>
 	import Navegacao from '../components/Navegacao.vue'
-	import Materias from '../components/Materias.vue'
+	import ListaDeDisciplia from '../components/GradeCurricular/ListaDeDisciplina.vue';
 	import Sair from '../components/Sair.vue'
 </script>
 
@@ -14,7 +14,7 @@
 			</header>
 			
 			<section>
-				<Materias></Materias>
+				<ListaDeDisciplia></ListaDeDisciplia>
 				<Sair></Sair>
 			</section>
 		</article>
