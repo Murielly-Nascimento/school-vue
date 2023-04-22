@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
+	history: createWebHistory(import.meta.env.BASE_URL),
+	routes: [
     {
       path: '/',
       name: 'login',
@@ -22,6 +22,10 @@ const router = createRouter({
 		path: '/gradeCurricular',
 		name: 'gradeCurricular',
 		component: () => import('../views/GradeCurricularView.vue')
+	},
+	{
+		path: '/disciplina/:id',
+		component: () => import('../views/DisciplinaView.vue')
 	},
 	{
 		path: '/docentes',

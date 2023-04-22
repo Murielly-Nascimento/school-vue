@@ -1,5 +1,6 @@
 <script setup>
 	import Navegacao from '../components/Navegacao.vue'
+	import Sair from '../components/Sair.vue'
 </script>
 
 <template>
@@ -42,11 +43,7 @@
 						</div>
 					</div>
 				</form>
-				<div>
-					<a class="btn btn-sair" role="button" href="/">
-						<font-awesome-icon icon="fa-solid fa-person-through-window" />
-					</a>
-				</div>
+				<Sair></Sair>
 			</section>
 		</article>
 	</div>
@@ -78,18 +75,5 @@
 		padding: 10px;
 		text-align: center;
 		width: 150px;
-	}
-
-	.btn-sair{
-		position: fixed;
-		right: 0;
-		bottom: 0;
-		color:#a63535;
-		font-size: 1.6em;
-		border:none;
-	}
-
-	.btn-sair:hover{
-		border: none;
 	}
 </style>
