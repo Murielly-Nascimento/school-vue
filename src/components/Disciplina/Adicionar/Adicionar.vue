@@ -8,8 +8,6 @@
 		<a :href="'/ementa/' + disciplina.id" class="btn btn-salvar">Ementa</a>	
 		<a :href="'/adicionar/' + disciplina.id" class="btn btn-salvar" id="ativo">Adicionar</a>
 	</div>
-	<div>
-	</div>
 </template>
 
 <style>
@@ -51,4 +49,4 @@
 	}
 </style>
 
-<script src="../dados.js"></script>
+<script src="../../dados"></script>
