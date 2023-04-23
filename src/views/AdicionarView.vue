@@ -1,7 +1,8 @@
 <script setup>
 	import Navegacao from '../components/Navegacao.vue';
 	import Sair from '../components/Sair.vue';
-	import Adicionar from '../components/Disciplina/Adicionar.vue';
+	import Adicionar from '../components/Disciplina/Adicionar/Adicionar.vue';
+	import Formulario from '../components/Disciplina/Adicionar/Formulario.vue';
 </script>
 
 <template>
@@ -9,6 +10,7 @@
 		<Navegacao></Navegacao>
 		<article>
 			<Adicionar></Adicionar>
+			<Formulario></Formulario>
 		</article>
 		<Sair></Sair>
 	</div>
