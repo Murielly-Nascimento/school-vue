@@ -24,19 +24,19 @@
 						
 					<form>
 						<div class="form-floating m-2">
-							<input type="text" class="form-control" id="nome" placeholder="Nome">
+							<input type="text" class="form-control" id="nome" autocomplete="off" placeholder="Nome">
 							<label for="nome"><b>Nome</b></label>
 						</div>
 						<div class="form-floating m-2">
-							<input type="text" class="form-control" id="matricula" placeholder="Matricula">
+							<input type="text" class="form-control" id="matricula" autocomplete="off" placeholder="Matricula">
 							<label for="matricula"><b>Matrícula</b></label>
 						</div>
 						<div class="form-floating m-2">
-							<input type="email" class="form-control" id="email" placeholder="Email Institucional">
+							<input type="email" class="form-control" id="email" autocomplete="off" placeholder="Email Institucional">
 							<label for="email"><b>Email Institucional</b></label>
 						</div>
 						<div class="form-floating m-2">
-							<input type="text" class="form-control" id="senha" placeholder="Senha">
+							<input type="text" class="form-control" id="senha" autocomplete="off" placeholder="Senha">
 							<label for="senha"><b>Senha</b></label>
 						</div>
 
