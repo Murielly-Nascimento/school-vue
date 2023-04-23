@@ -32,7 +32,7 @@
 					</p>
 				</div>
 				<div>
-					<a class="btn btn-salvar" role="button">
+					<a class="btn btn-salvar" role="button" href="/gradeCurricular">
 						<b>Saiba Mais</b> <font-awesome-icon icon="fa-solid fa-arrow-right" />
 					</a>
 				</div>
