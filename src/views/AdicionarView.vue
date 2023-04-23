@@ -1,14 +1,14 @@
 <script setup>
 	import Navegacao from '../components/Navegacao.vue';
 	import Sair from '../components/Sair.vue';
-	import Documentos from '../components/Disciplina/Documentos.vue';
+	import Adicionar from '../components/Disciplina/Adicionar.vue';
 </script>
 
 <template>
 	<div>
 		<Navegacao></Navegacao>
 		<article>
-			<Documentos></Documentos>
+			<Adicionar></Adicionar>
 		</article>
 		<Sair></Sair>
 	</div>

@@ -25,7 +25,24 @@ const router = createRouter({
 	},
 	{
 		path: '/disciplina/:id',
-		component: () => import('../views/DisciplinaView.vue')
+		component: () => import('../views/DisciplinaView.vue'),
+		meta:{
+			reload: true,
+		},
+	},
+	{
+		path: '/ementa/:id',
+		component: () => import('../views/EmentaView.vue'),
+		meta:{
+			reload: true,
+		},
+	},
+	{
+		path: '/adicionar/:id',
+		component: () => import('../views/AdicionarView.vue'),
+		meta:{
+			reload: true,
+		},
 	},
 	{
 		path: '/docentes',
