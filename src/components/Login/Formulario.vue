@@ -32,8 +32,8 @@
 </template>
 
 <script>
-import { Form, Field, ErrorMessage, defineRule } from 'vee-validate';
 import AppForm from '@/mixins/Form/AppForm';
+import { Form, Field, ErrorMessage, defineRule } from 'vee-validate';
 import { SessionHelper } from '@/helpers'
 import { getUser } from '@/services'
 

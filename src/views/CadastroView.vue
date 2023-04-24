@@ -1,9 +1,9 @@
 <script setup>
-	import LogoUFU from '../components/LogoUFU.vue';
-	import FiosDireita from '../components/Cadastro/FiosDireita.vue'
-	import FiosEsquerda from '../components/Cadastro/FiosEsquerda.vue'
-	import Titulo from '../components/Cadastro/Titulo.vue';
-	import Formulario from '../components/Cadastro/Formulario.vue';
+	import LogoUFU from '@/components/LogoUFU.vue';
+	import FiosDireita from '@/components/Cadastro/FiosDireita.vue'
+	import FiosEsquerda from '@/components/Cadastro/FiosEsquerda.vue'
+	import Titulo from '@/components/Cadastro/Titulo.vue';
+	import Formulario from '@/components/Cadastro/Formulario.vue';
 </script>
 
 <template>
@@ -14,7 +14,7 @@
 				<LogoUFU></LogoUFU>
 				<div class="formulario">
 					<Titulo></Titulo>	
-					<Formulario></Formulario>
+					<Formulario action="/users/register"></Formulario>
 				</div>
 			</div>
 		</div>

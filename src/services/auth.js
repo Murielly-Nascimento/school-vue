@@ -2,7 +2,7 @@ import { baseURL, api } from '@/api';
 
 export const login = async (email, password) => {
     return new Promise((resolve, reject) => {
-        api.post(baseURL + '/auth/login', { email, password })
+        api.post('/auth/login', { email, password })
             .then(response => {
                 resolve(response.data)
             })

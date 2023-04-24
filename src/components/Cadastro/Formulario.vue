@@ -1,8 +1,12 @@
 <template>
-	<Form @submit.prevent="onSubmit">
+	<Form @submit="onSubmit">
 		<div>
-			<Field v-model="form.name" name="nome" type="text" :rules="validarCampo" autocomplete="off" placeholder="Nome" class="campo"></Field>
+			<Field v-model="form.firstName" name="nome" type="text" :rules="validarCampo" autocomplete="off" placeholder="Nome" class="campo"></Field>
 			<ErrorMessage name="nome" class="erro"/>
+		</div>
+		<div>
+			<Field v-model="form.lastName" name="sobrenome" type="text" :rules="validarCampo" autocomplete="off" placeholder="Sobrenome" class="campo"></Field>
+			<ErrorMessage name="sobrenome" class="erro"/>
 		</div>
 		<div>
 			<Field v-model="form.registration" name="matricula" type="text" :rules="validarCampo" autocomplete="off" placeholder="Matrícula" class="campo"></Field>
@@ -13,15 +17,23 @@
 			<ErrorMessage name="email" class="erro"/>
 		</div>
 		<div>
-			<Field v-model="form.password" name="senha" type="senha" :rules="validarSenha" autocomplete="off" placeholder="Senha" class="campo"></Field>
+			<Field v-model="form.password" name="senha" type="password" :rules="validarSenha" autocomplete="off" placeholder="Senha" class="campo"></Field>
 			<ErrorMessage name="senha" class="erro"/>
+		</div>
+
+		<div class="alert alert-success mt-4 mx-2" role="alert" v-if="messageSuccess.length">
+			{{ messageSuccess }}
+		</div>
+
+		<div class="alert alert-danger mt-4 mx-2" role="alert" v-if="messageError.length">
+			{{ messageError }}
 		</div>
 
 		<div class="row">
 			<div class="col">
-				<button class="btn btn-salvar" to="\" type="button">
+				<router-link class="btn btn-salvar" to="login" role="button">
 					<font-awesome-icon icon="fa-solid fa-arrow-left" /> <b>Logar</b> 
-				</button>
+				</router-link>
 			</div>
 			<div class="col">
 				<button class="btn btn-salvar" type="submit">
@@ -33,10 +45,13 @@
 </template>
 
 <script>
+import AppForm from '@/mixins/Form/AppForm';
 import { Form, Field, ErrorMessage } from 'vee-validate';
-import { api } from '@/api.js';
+import { SessionHelper } from '@/helpers'
+import { login } from '@/services'
 
 export default {
+	mixins: [AppForm],
 	components: {
 		Form,
 		Field,
@@ -45,17 +60,17 @@ export default {
 	data() {
 		return {
 			form: {
-				name: '',
+				firstName: '',
+				lastName: '',
 				registration: '',
 				email: '',
 				password: '',
-			}
+			},
+			messageError: '',
+			messageSuccess: '',
 		}
 	},
 	methods: {
-		onSubmit() {
-			api.post('http://localhost:3000/users/')
-		},
 		validarCampo(value){
 			if(!value){
 				return 'Esse campo é obrigatório.';
@@ -80,16 +95,35 @@ export default {
 				return 'Esse campo é obrigatório.';
 			}
 
-			if (value.length <= 8) {
+			if (value.length < 8) {
 				return 'A senha deve conter no mínimo 8 dígitos.';
 			}
 
-			const regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/i;
-			if (!regex.test(value)) {
-				return 'A senha deve conter números e símbolos.';
-			}
+			// const regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/i;
+			// if (!regex.test(value)) {
+			// 	return 'A senha deve conter números e símbolos.';
+			// }
 
 			return true;
+		},
+        onSuccess(data) {
+            this.submiting = false;
+			this.messageSuccess = 'Cadastro Efetuado com sucesso, aguarde o redirecionamento';
+
+			setTimeout(() => {
+				login(this.form.email, this.form.password)
+					.then(response => {
+						SessionHelper.setEncodedItem('tk', response);
+						this.$router.push('/')
+					})
+					.catch(error => {
+						this.$router.push('/login')
+					})
+			}, 1000);
+        },
+		onFail() {
+            this.submiting = false;
+			this.messageError = 'Erro ao cadastrar';
 		}
 	},
 };
