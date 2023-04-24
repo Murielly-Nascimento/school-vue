@@ -58,10 +58,10 @@ export default {
 	},
 	beforeCreate() {
 		getUser()
-			.then(async response => {
+			.then(async _ => {
 				await this.$router.push('/')
 			})
-			.catch(error => {});
+			.catch(error => console.warn('Not authenticated'));
 	},
 	mounted () {
 		defineRule('required', (value) => {
