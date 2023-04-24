@@ -1,6 +1,7 @@
 <script setup>
 	import Navegacao from '../components/Navegacao.vue'
 	import Titulo from '../components/Docentes/Titulo.vue';
+	import Sair from '../components/Sair.vue';
 </script>
 
 <template>
@@ -85,6 +86,7 @@
 				</tr>
 			</table>
 		</div>
+		<Sair></Sair>
 	</div>
 </template>
 
