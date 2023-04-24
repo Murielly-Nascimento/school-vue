@@ -1,15 +1,13 @@
 <script setup>
-	import Navegacao from '../components/Navegacao.vue';
-	import Sair from '../components/Sair.vue'
+	import Layout from '@/layout/Layout.vue';
 </script>
 
 <template>
-	<div>
-		<Navegacao></Navegacao>
+	<Layout>
 		<article class="row">
 			<section class="col">
 				<div id="banner">
-					<img src="../assets/img/computador.png" alt="computador" width="661" height="500">
+					<img src="@/assets/img/computador.png" alt="computador" width="661" height="500">
 				</div>
 			</section>
 			<section class="col-6" id="conteudo">
@@ -32,19 +30,16 @@
 					</p>
 				</div>
 				<div>
-					<a class="btn btn-salvar" role="button" href="/gradeCurricular">
+					<a class="btn btn-salvar" role="button" to="/gradeCurricular">
 						<b>Saiba Mais</b> <font-awesome-icon icon="fa-solid fa-arrow-right" />
 					</a>
 				</div>
-				<Sair></Sair>
 			</section>
 		</article>
-	</div>
+	</Layout>
 </template>
 
 <style>
-	@import '../assets/main.css';
-
 	#conteudo{
 		margin-bottom: 10px;
 		padding: 50px;
@@ -57,7 +52,7 @@
 		left:0;
 	}
 
-	.titulo h1{
+	.titulo h1 {
 		font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 		color:#38b6ff;
 		text-align: center;

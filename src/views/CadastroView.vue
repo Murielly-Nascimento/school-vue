@@ -9,7 +9,7 @@
 <template>
 	<FiosDireita></FiosDireita>
 	<div class="container">	
-		<div class="row d-flex justify-content-center">
+		<div class="row justify-content-center">
 			<div class="col-md-6">
 				<LogoUFU></LogoUFU>
 				<div class="formulario">

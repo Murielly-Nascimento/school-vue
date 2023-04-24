@@ -1,106 +1,46 @@
 <template>
 	<div>
 		<ul>
-			<li>
-				<a class="btn collapsible"  data-bs-toggle="collapse" href="#collapseMaterias" role="button" aria-expanded="false" aria-controls="collapseMaterias">
-					<h4>1º Período</h4>
+			<li v-for="periodo in periodos" :key="periodo.id">
+				<a
+					role="button"
+					class="btn collapsible"
+					data-bs-toggle="collapse"
+					aria-expanded="false"
+					aria-controls="collapseMaterias"
+					:href="'#collapseDisciplinas' + periodo.id"
+				>
+					<h4>{{ periodo.name }}</h4>
 				</a>
-				<div class="collapse" id="collapseMaterias">
-					<div class="lista" v-for="disciplina in primeiroPeriodo" :key="disciplina.id">
-						<a :href="'/disciplina/' + disciplina.id">
+				<div class="collapse" :id="'collapseDisciplinas' + periodo.id">
+					<div class="lista" v-for="disciplina in disciplinas[periodo.id]" :key="disciplina.id">
+						<router-link :to="'/disciplina/' + disciplina.id">
 							{{ disciplina.nome }}
-						</a>	
-					</div>
-				</div>
-			</li>
-			<li>
-				<a class="btn collapsible"  data-bs-toggle="collapse" href="#collapseMaterias2" role="button" aria-expanded="false" aria-controls="collapseMaterias2">
-					<h4>2º Período</h4>
-				</a>
-				<div class="collapse" id="collapseMaterias2">
-					<div class="lista" v-for="disciplina in segundoPeriodo" :key="disciplina.id">
-						<a :href="'/disciplina/' + disciplina.id">
-							{{ disciplina.nome }}
-						</a>	
-					</div>
-				</div>
-			</li>
-			<li>
-				<a class="btn collapsible"  data-bs-toggle="collapse" href="#collapseMaterias3" role="button" aria-expanded="false" aria-controls="collapseMaterias3">
-					<h4>3º Período</h4>
-				</a>
-				<div class="collapse" id="collapseMaterias3">
-					<div class="lista" v-for="disciplina in terceiroPeriodo" :key="disciplina.id">
-						<a :href="'/disciplina/' + disciplina.id">
-							{{ disciplina.nome }}
-						</a>	
-					</div>
-				</div>
-			</li>
-			<li>
-				<a class="btn collapsible"  data-bs-toggle="collapse" href="#collapseMaterias4" role="button" aria-expanded="false" aria-controls="collapseMaterias4">
-					<h4>4º Período</h4>
-				</a>
-				<div class="collapse" id="collapseMaterias4">
-					<div class="lista" v-for="disciplina in quartoPeriodo" :key="disciplina.id">
-						<a :href="'/disciplina/' + disciplina.id">
-							{{ disciplina.nome }}
-						</a>	
-					</div>
-				</div>
-			</li>
-			<li>
-				<a class="btn collapsible"  data-bs-toggle="collapse" href="#collapseMaterias5" role="button" aria-expanded="false" aria-controls="collapseMaterias5">
-					<h4>5º Período</h4>
-				</a>
-				<div class="collapse" id="collapseMaterias5">
-					<div class="lista" v-for="disciplina in quintoPeriodo" :key="disciplina.id">
-						<a :href="'/disciplina/' + disciplina.id">
-							{{ disciplina.nome }}
-						</a>	
-					</div>
-				</div>
-			</li>
-			<li>
-				<a class="btn collapsible"  data-bs-toggle="collapse" href="#collapseMaterias6" role="button" aria-expanded="false" aria-controls="collapseMaterias6">
-					<h4>6º Período</h4>
-				</a>
-				<div class="collapse" id="collapseMaterias6">
-					<div class="lista" v-for="disciplina in sextoPeriodo" :key="disciplina.id">
-						<a :href="'/disciplina/' + disciplina.id">
-							{{ disciplina.nome }}
-						</a>	
-					</div>
-				</div>
-			</li>
-			<li>
-				<a class="btn collapsible"  data-bs-toggle="collapse" href="#collapseMaterias7" role="button" aria-expanded="false" aria-controls="collapseMaterias7">
-					<h4>7º Período</h4>
-				</a>
-				<div class="collapse" id="collapseMaterias7">
-					<div class="lista" v-for="disciplina in setimoPeriodo" :key="disciplina.id">
-						<a :href="'/disciplina/' + disciplina.id">
-							{{ disciplina.nome }}
-						</a>	
-					</div>
-				</div>
-			</li>
-			<li>
-				<a class="btn collapsible"  data-bs-toggle="collapse" href="#collapseMaterias8" role="button" aria-expanded="false" aria-controls="collapseMaterias8">
-					<h4>8º Período</h4>
-				</a>
-				<div class="collapse" id="collapseMaterias8">
-					<div class="lista" v-for="disciplina in oitavoPeriodo" :key="disciplina.id">
-						<a :href="'/disciplina/' + disciplina.id">
-							{{ disciplina.nome }}
-						</a>	
+						</router-link>	
 					</div>
 				</div>
 			</li>
 		</ul>
 	</div>
-
 </template>
+
+<script>
+import {
+	getDisciplinasById,
+	getDisciplinasGroupByPeriodo
+} from '@/mocks/mockDisciplinas';
+import { periodos } from '@/mocks/mockPeriodos';
+
+export default {
+	data() {
+		return {
+			periodos,
+			disciplinas: getDisciplinasGroupByPeriodo(),
+			disciplina: getDisciplinasById(this.$route.params.id),
+		}
+	},
+}
+</script>
 
 <style>
 	ul{
@@ -133,6 +73,6 @@
 		color: white;
 		padding: 5px;
 	}
-</style>
 
-<script src="../dados.js"></script>
+	/* @media */
+</style>

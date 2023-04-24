@@ -1,5 +1,5 @@
 <script setup>
-	import Navegacao from '../components/Navegacao.vue'
+	import Navegacao from '../layout/Navegacao.vue'
 </script>
 
 <template>

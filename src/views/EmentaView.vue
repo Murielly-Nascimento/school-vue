@@ -1,19 +1,12 @@
 <script setup>
-	import Navegacao from '../components/Navegacao.vue';
-	import Sair from '../components/Sair.vue';
-	import Ementa from '../components/Disciplina/Ementa.vue';
+	import Layout from '@/layout/Layout.vue';
+	import Ementa from '@/components/Disciplina/Ementa.vue';
 </script>
 
 <template>
-	<div>
-		<Navegacao></Navegacao>
+	<Layout>
 		<article>
 			<Ementa></Ementa>
 		</article>
-		<Sair></Sair>
-	</div>
+	</Layout>
 </template>
-
-<style>
-	@import '../assets/main.css';
-</style>

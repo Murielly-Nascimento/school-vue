@@ -1,19 +1,14 @@
 <script setup>
-	import Navegacao from '../components/Navegacao.vue';
-	import Sair from '../components/Sair.vue';
-	import Adicionar from '../components/Disciplina/Adicionar/Adicionar.vue';
-	import Formulario from '../components/Disciplina/Adicionar/Formulario.vue';
+	import Layout from '@/layout/Layout.vue';
+	import Adicionar from '@/components/Disciplina/Adicionar/Adicionar.vue';
 </script>
 
 <template>
-	<div>
-		<Navegacao></Navegacao>
+	<Layout>
 		<article>
 			<Adicionar></Adicionar>
-			<Formulario></Formulario>
 		</article>
-		<Sair></Sair>
-	</div>
+	</Layout>
 </template>
 
 <style>

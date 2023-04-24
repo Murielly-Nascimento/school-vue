@@ -1,40 +1,37 @@
 <script setup>
-	import Navegacao from '../components/Navegacao.vue'
-	import ListaDeDisciplia from '../components/GradeCurricular/ListaDeDisciplina.vue';
-	import Sair from '../components/Sair.vue'
+	import Layout from '@/layout/Layout.vue';
+	import ListaDeDisciplia from '@/components/GradeCurricular/ListaDeDisciplina.vue';
 </script>
 
 <template>
-	<div>
-		<Navegacao></Navegacao>
+	<Layout>
 		<article>
 			<header class="titulo">
 				<h2>Grade Curricular</h2>
-				<hr>
+				<hr class="divisor">
 			</header>
 			
 			<section>
 				<ListaDeDisciplia></ListaDeDisciplia>
-				<Sair></Sair>
 			</section>
 		</article>
-	</div>
+	</Layout>
 </template>
 
 <style>
-	@import '../assets/main.css';
-
-	.titulo{
+	.titulo {
 		padding-left: 10px;
 		padding-bottom: 10px;
 	}
 
-	.titulo h2{
+	.titulo h2 {
 		color:#38b6ff;
 		text-align: left;
 	}
+</style>
 
-	hr{
+<style scoped>
+	hr.divisor {
 		height: 2px;
 		color: gray;
 		background-color: gray;

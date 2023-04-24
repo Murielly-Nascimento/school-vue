@@ -1,19 +1,13 @@
 <script setup>
-	import Navegacao from '../components/Navegacao.vue';
-	import Titulo from '../components/Docentes/Titulo.vue';
-	import ListaDeDocentes from '../components/Docentes/ListaDeDocentes.vue'
+	import Layout from '@/layout/Layout.vue';
+	import ListaDeDocentes from '../components/Docentes/ListaDeDocentes.vue';
 </script>
 
 <template>
-	<div>
-		<Navegacao></Navegacao>
+	<Layout>
 		<div class="container">
 			<Titulo></Titulo>
 			<ListaDeDocentes></ListaDeDocentes>
 		</div>
-	</div>
+	</Layout>
 </template>
-
-<style>
-	@import '../assets/main.css';
-</style>

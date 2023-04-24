@@ -1,4 +1,4 @@
-import GerenciarAcesso from "../components/Helpers/GerenciarAcesso";
+import GerenciarAcesso from "@/helpers/GerenciarAcesso";
 
 export default async function log({ next, to }) {
     await GerenciarAcesso.check();

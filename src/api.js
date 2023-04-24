@@ -1,8 +1,9 @@
 import axios from "axios";
+import { SessionHelper } from "./helpers";
 
-export const baseURL = import.meta.env?.VITE_API_URL ? 
-  import.meta.env?.VITE_API_URL :
-  "https://localhost:3000";
+const env = import.meta.env;
+
+export const baseURL = env?.VITE_API_URL ? env?.VITE_API_URL : "https://localhost:3000";
   
 export const api = axios.create({
   baseURL: baseURL,
@@ -10,9 +11,9 @@ export const api = axios.create({
 
 api.interceptors.request.use(function (config) {
   config.headers["Content-Type"] = "application/json";
-  const token = localStorage.getItem("tk");
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
+  const item = SessionHelper.getDecodedItem("tk");
+  if (item && item.access_token) {
+    config.headers.Authorization = `Bearer ${item.access_token}`;
   }
   return config;
 });

@@ -16,6 +16,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .btn-cadastrar{
     border-radius: 30px;
     border-style: solid;

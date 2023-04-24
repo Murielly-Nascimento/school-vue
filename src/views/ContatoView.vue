@@ -1,11 +1,9 @@
 <script setup>
-	import Navegacao from '../components/Navegacao.vue'
-	import Sair from '../components/Sair.vue'
+	import Layout from '@/layout/Layout.vue'
 </script>
 
 <template>
-	<div>
-		<Navegacao></Navegacao>
+	<Layout>
 		<article>
 			<header id="titulo">
 				<h1>Dúvidas?</h1>
@@ -43,15 +41,12 @@
 						</div>
 					</div>
 				</form>
-				<Sair></Sair>
 			</section>
 		</article>
-	</div>
+	</Layout>
 </template>
 
 <style>
-	@import '../assets/main.css';
-
 	#titulo{
 		text-align: center;
 		color: white;

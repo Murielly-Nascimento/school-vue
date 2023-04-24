@@ -1,15 +1,13 @@
 <template>
-	<form @submit.prevent="onSubmit" class="mx-auto col-10 col-md-8 col-lg-6">
+	<Form @submit="onSubmit" :validation-schema="schema" class="mx-auto col-10 col-md-8 col-lg-6">
 		<div class="row">
-			<div class="col">
-				<Field v-model="form.email" name="email" type="email" autocomplete="off" placeholder="Email Institucional" class="campo"></Field>
+			<div class="col-12">
+				<Field v-model="form.email" name="email" type="email" placeholder="Email Institucional" class="campo"></Field>
 				<ErrorMessage name="email" class="erro"/>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col">
-				<Field v-model="form.password" name="senha" type="password" autocomplete="off" placeholder="Senha" class="campo"></Field>
-				<ErrorMessage name="senha" class="erro"></ErrorMessage>
+			<div class="col-12">
+				<Field v-model="form.password" name="password" type="password" placeholder="Senha" class="campo"></Field>
+				<ErrorMessage name="password" class="erro"></ErrorMessage>
 			</div>
 		</div>
 
@@ -26,18 +24,21 @@
 		</div>
 		
 		<div class="row m-3">
-			<button type="button" class="btn" id="btn-cadastrar">
+			<a class="btn" role="button" href="/cadastro" id="btn-cadastrar">
 				<b>Cadastrar</b> 
-			</button>
+			</a>
 		</div>
-	</form>
+	</Form>
 </template>
 
 <script>
-import { Form, Field, ErrorMessage } from 'vee-validate';
-import { api } from '@/api';
+import { Form, Field, ErrorMessage, defineRule } from 'vee-validate';
+import AppForm from '@/mixins/Form/AppForm';
+import { SessionHelper } from '@/helpers'
+import { getUser } from '@/services'
 
 export default {
+	mixins: [AppForm],
 	components: {
 		Form,
 		Field,
@@ -48,30 +49,53 @@ export default {
 			form: {
 				email: '',
 				password: '',
+			},
+			schema: {
+				email: 'required|email',
+				password: 'required',
 			}
 		}
 	},
+	beforeCreate() {
+		getUser()
+			.then(async response => {
+				await this.$router.push('/')
+			})
+			.catch(error => {});
+	},
+	mounted () {
+		defineRule('required', (value) => {
+			if (!value || !value.length) {
+				return 'Este campo é obrigatório';
+			}
+			return true;
+		});
+		defineRule('email', (value) => {
+			const regex = /^[A-Z0-9._%+-]+@ufu+\.[A-Z]{2,4}$/i;
+			if (!regex.test(value)) {
+				return 'Para entrar é obrigatório o uso de um e-mail institucional.';
+			}
+			return true;
+		});
+	},
 	methods: {
-		onSubmit() {
-			api.post('http://localhost:3000/auth/login', this.form)
-				.then(response => {
-					console.log(response);
-				})
-				.catch(error => {
-					console.warn(error);
-				})
-		},
+        onSuccess(data) {
+            this.submiting = false;
+
+            SessionHelper.setEncodedItem('tk', data);
+			this.$router.push('/')
+        },
 	},
 }
 </script>
 
 <style>
-	.formulario{
+	.formulario {
 		margin-top: 50px;
 		text-align: center;
 	}
 
-	.campo{
+	.campo {
 		background-color: #38b6ff;
 		padding: 15px;
 		width: 97%;
@@ -81,22 +105,22 @@ export default {
 		margin-bottom: 3px;
 	}
 
-	::placeholder{
+	::placeholder {
 		color:black;
 	}
 
-	.erro{
+	.erro {
 		color: #a63535;
 	}
 
-	.btn-salvar{
+	.btn-salvar {
 		border-radius: 5px;
 		background-color: #f1f1f1;
 		text-align: center;
 		padding: 10px;
 	}
 
-	.btn-salvar:hover{
+	.btn-salvar:hover {
 		background-color: #38b6ff;
 		border-color: blue;
 	}

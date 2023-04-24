@@ -1,17 +1,15 @@
 <script setup>
-	import Navegacao from '../components/Navegacao.vue';
-	import Sair from '../components/Sair.vue';
-	import Documentos from '../components/Disciplina/Documentos.vue';
+	import Layout from '@/layout/Layout.vue';
+	import Documentos from '@/components/Disciplina/Documentos.vue';
 </script>
 
+
 <template>
-	<div>
-		<Navegacao></Navegacao>
+	<Layout>
 		<article>
 			<Documentos></Documentos>
 		</article>
-		<Sair></Sair>
-	</div>
+	</Layout>
 </template>
 
 <style>

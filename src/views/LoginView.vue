@@ -13,7 +13,7 @@
 				
 				<div class="formulario">
 					<Titulo></Titulo>
-					<Formulario></Formulario>
+					<Formulario action="/auth/login"></Formulario>
 				</div>
 			</div>
 			<Banner></Banner>
@@ -22,8 +22,10 @@
 </template>
 
 <style>
-	body{
-		background-color: #010214;
-		font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-	}
+@import '@/assets/main.css';
+
+body {
+	background-color: #010214;
+	/* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+}
 </style>
