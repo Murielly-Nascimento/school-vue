@@ -1,7 +1,7 @@
 import axios from "axios";
 
-export const baseURL = process.env.VUE_APP_API_URL ? 
-  process.env.VUE_APP_API_URL :
+export const baseURL = import.meta.env?.VITE_API_URL ? 
+  import.meta.env?.VITE_API_URL :
   "https://localhost:3000";
   
 export const api = axios.create({

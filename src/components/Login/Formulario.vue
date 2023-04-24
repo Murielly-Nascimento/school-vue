@@ -1,81 +1,68 @@
 <template>
-	<Form @submit.prevent="onSubmit" class="mx-auto col-10 col-md-8 col-lg-6">
+	<form @submit.prevent="onSubmit" class="mx-auto col-10 col-md-8 col-lg-6">
 		<div class="row">
 			<div class="col">
-				<Field name="email" type="email" :rules="validarEmail" autocomplete="off" placeholder="Email Institucional" class="campo"></Field>
+				<Field v-model="form.email" name="email" type="email" autocomplete="off" placeholder="Email Institucional" class="campo"></Field>
 				<ErrorMessage name="email" class="erro"/>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col">
-				<Field name="senha" type="text" :rules="validarSenha" autocomplete="off" placeholder="Senha" class="campo"></Field>
+				<Field v-model="form.password" name="senha" type="password" autocomplete="off" placeholder="Senha" class="campo"></Field>
 				<ErrorMessage name="senha" class="erro"></ErrorMessage>
 			</div>
 		</div>
 
 		<div class="row m-1">
-			<button class="btn text-black btn-salvar" role="button">
+			<button class="btn text-black btn-salvar" type="submit">
 				<b>Entrar</b> <font-awesome-icon icon="fa-solid fa-arrow-right" />
 			</button>
 		</div>
 	
 		<div class="row m-2">
-			<a href="" class="link">
+			<a to="/" class="link">
 				Esqueceu sua senha? 
 			</a>
 		</div>
 		
 		<div class="row m-3">
-			<a class="btn" role="button" href="/cadastro" id="btn-cadastrar">
+			<button type="button" class="btn" id="btn-cadastrar">
 				<b>Cadastrar</b> 
-			</a>
+			</button>
 		</div>
-	</Form>
+	</form>
 </template>
 
 <script>
-	import { Form, Field, ErrorMessage } from 'vee-validate';
+import { Form, Field, ErrorMessage } from 'vee-validate';
+import { api } from '@/api';
 
-	export default {
-		components: {
-			Form,
-			Field,
-			ErrorMessage,
-		},
-		methods: {
-			onSubmit() {
-				console.log(JSON.stringify(values, null, 2));
-			},
-			validarEmail(value){
-				if(!value){
-					return 'Esse campo é obrigatório.';
-				}
-
-				const regex = /^[A-Z0-9._%+-]+@ufu+\.[A-Z]{2,4}$/i;
-				if (!regex.test(value)) {
-					return 'Use um e-mail institucional.';
-				}
-
-				return true;
-			},
-			validarSenha(value){
-				if(!value){
-					return 'Esse campo é obrigatório.';
-				}
-
-				if (value.length <= 8) {
-					return 'A senha deve conter no mínimo 8 dígitos.';
-				}
-
-				const regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/i;
-				if (!regex.test(value)) {
-					return 'A senha deve conter números e símbolos.';
-				}
-
-				return true;
+export default {
+	components: {
+		Form,
+		Field,
+		ErrorMessage,
+	},
+	data() {
+		return {
+			form: {
+				email: '',
+				password: '',
 			}
+		}
+	},
+	methods: {
+		onSubmit() {
+			api.post('http://localhost:3000/auth/login', this.form)
+				.then(response => {
+					console.log(response);
+				})
+				.catch(error => {
+					console.warn(error);
+				})
 		},
-	};
+	},
+}
 </script>
 
 <style>
