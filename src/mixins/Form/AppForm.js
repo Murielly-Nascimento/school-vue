@@ -15,7 +15,8 @@ export default {
     data() {
         return {
             form: {},
-            redirectTo: '', 
+            redirectTo: '',
+            submiting: false,
         }
     },
     beforeCreate() {

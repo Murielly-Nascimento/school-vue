@@ -7,17 +7,17 @@ const router = createRouter({
 	{
 		path: '/login',
 		name: 'login',
-		component: () => import('../views/LoginView.vue')
+		component: () => import('../views/LoginView/index.vue')
 	},
 	{
 		path: '/cadastro',
 		name: 'cadastro',
-		component: () => import('../views/CadastroView.vue')
+		component: () => import('../views/RegisterView/index.vue')
 	},
 	{
 		path: '/',
 		name: 'home',
-		component: () => import('../views/HomeView.vue'),
+		component: () => import('../views/HomeView/index.vue'),
 		meta: {
 			middleware: AuthMiddleware,
 		}
@@ -25,30 +25,14 @@ const router = createRouter({
 	{
 		path: '/gradeCurricular',
 		name: 'gradeCurricular',
-		component: () => import('../views/GradeCurricularView.vue'),
+		component: () => import('../views/CurriculumView/index.vue'),
 		meta: {
 			middleware: AuthMiddleware,
 		}
 	},
 	{
 		path: '/disciplina/:id',
-		component: () => import('../views/DisciplinaView.vue'),
-		meta: {
-			reload: true,
-			middleware: AuthMiddleware,
-		},
-	},
-	{
-		path: '/ementa/:id',
-		component: () => import('../views/EmentaView.vue'),
-		meta: {
-			reload: true,
-			middleware: AuthMiddleware,
-		},
-	},
-	{
-		path: '/adicionar/:id',
-		component: () => import('../views/AdicionarView.vue'),
+		component: () => import('../views/SubjectView/index.vue'),
 		meta: {
 			reload: true,
 			middleware: AuthMiddleware,
@@ -57,7 +41,7 @@ const router = createRouter({
 	{
 		path: '/docentes',
 		name: 'docentes',
-		component: () => import('../views/DocentesView.vue'),
+		component: () => import('../views/TeachersView/index.vue'),
 		meta: {
 			middleware: AuthMiddleware,
 		}
@@ -65,7 +49,7 @@ const router = createRouter({
 	{
 		path: '/contato',
 		name: 'contato',
-		component: () => import('../views/ContatoView.vue'),
+		component: () => import('../views/ContactView/index.vue'),
 		meta: {
 			middleware: AuthMiddleware,
 		}
@@ -73,7 +57,7 @@ const router = createRouter({
 	{
 		path: '/perfil',
 		name: 'perfil',
-		component: () => import('../views/PerfilView.vue'),
+		component: () => import('../views/ProfileView/index.vue'),
 		meta: {
 			middleware: AuthMiddleware,
 		}
