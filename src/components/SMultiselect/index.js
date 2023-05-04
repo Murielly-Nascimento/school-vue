@@ -1,0 +1,1 @@
+export { default as SMultiselect } from './SMultiselect.vue';

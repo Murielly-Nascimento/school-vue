@@ -1,0 +1,12 @@
+.form-create {
+    .form-floating {
+        margin-bottom: 20px;
+    }
+}
+
+.form-required {
+    &::after {
+        content: " *";
+        color: red;
+    }
+}

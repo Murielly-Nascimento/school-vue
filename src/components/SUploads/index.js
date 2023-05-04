@@ -1,0 +1,1 @@
+export { default as SUploads } from './SUploads.vue';
