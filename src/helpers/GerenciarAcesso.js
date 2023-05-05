@@ -1,27 +1,23 @@
 import { SessionHelper } from "@/helpers";
 import { getUser } from '@/services';
 import { useUser } from '@/store';
+import { UnauthorizedException } from "@/exceptions";
+import { refresh } from '@/services'
 
 const GerenciarAcesso = {
 	token: null,
 	userData: null,
-	async check() {
-		this.setToken(SessionHelper.getDecodedItem('tk'));
-		if (!(await this.validateToken())) {
-			this.accessOrDie();
-		}
-
-		this.saveToken(this.token);
+	async validateAccess() {
+		this.checkToken(SessionHelper.getDecodedItem('tk'))
+			.then(token => this.getAccess(token))
+			.catch(error => this.unauthorize(error));
 	},
-	accessOrDie() {
-		this.resetToken();
-		location.replace('/login');
+	getAccess(token) {
+		this.updateToken(token);
 	},
-	saveToken(token) {
-		window.axios.defaults.headers.common["Authorization"] = "Bearer " + token;
-	},
-	resetToken() {
+	unauthorize(error) {
 		SessionHelper.remove("token");
+		error.abort();
 	},
 	getToken() {
 		return this.token;
@@ -29,11 +25,35 @@ const GerenciarAcesso = {
 	setToken(token) {
 		this.token = token;
 	},
+	saveToken(token) {
+		this.setToken(token);
+		SessionHelper.setEncodedItem(token);
+	},
 	hasToken() {
 		return this.token != null && this.token != undefined;
 	},
-	async validateToken() {
-		return this.hasToken() && (await this.isValid());
+	updateToken(token) {
+		refresh()
+			.then(response => {
+				this.saveToken(response.data);
+			})
+			.catch(error => {
+				this.saveToken(token);
+			})
+	},
+	async checkToken(token) {
+		return new Promise((resolve, reject) => {
+			this.setToken(token);
+			if (!this.hasToken()) {
+				reject(UnauthorizedException.create('Não autorizado'));
+			}
+			this.isValid().then(response => {
+				if (!response) {
+					return reject(UnauthorizedException.create('Não autorizado'));
+				}
+				return resolve(token);
+			})
+		});
 	},
 	async isValid() {
 		try {

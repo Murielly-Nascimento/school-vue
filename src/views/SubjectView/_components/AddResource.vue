@@ -28,7 +28,7 @@
 			<div class="row">
 				<div class="col">
 					<div class="form-floating">
-                        <SDropzone></SDropzone>
+                        <s-upload collection="anexos"></s-upload>
                     </div>
 				</div>
 			</div>
@@ -45,9 +45,7 @@
 
 <script>
 import { AppForm } from '@/mixins';
-import { SMultiselect, STextArea } from '@/components';
-
-import SDropzone from '@/components/SUploads/SDropzone.vue'
+import { SMultiselect, STextArea, SUpload } from '@/components';
 
 export default {
     name: 'AddResource',
@@ -55,10 +53,7 @@ export default {
     components: {
         SMultiselect,
         STextArea,
-
-
-
-        SDropzone
+        SUpload,
     },
 	props: {
 		disciplina: {
@@ -74,17 +69,18 @@ export default {
                     bin: undefined,
                 },
             },
+            mediaCollections: ['anexos'],
             acceptedFileTypes: [
                 'PDF',
                 'Image',
                 'Vídeo',
-            ]
+            ],
         }
     },
     methods: {
         __log() {
             console.log(this.file.type);
-        }
+        },
     },
 }
 </script>

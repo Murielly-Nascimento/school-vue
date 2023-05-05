@@ -22,7 +22,7 @@
                 </div>
             </div>
         </div>
-        <div class="row btn-submit">
+        <div class="row">
             <div class="col">
                 <s-submit-button></s-submit-button>
             </div>
