@@ -4,64 +4,70 @@ import { AuthMiddleware } from '@/middleware';
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
 	routes: [
-	{
-		path: '/login',
-		name: 'login',
-		component: () => import('../views/LoginView/index.vue')
-	},
-	{
-		path: '/cadastro',
-		name: 'cadastro',
-		component: () => import('../views/RegisterView/index.vue')
-	},
-	{
-		path: '/',
-		name: 'home',
-		component: () => import('../views/HomeView/index.vue'),
-		meta: {
-			middleware: AuthMiddleware,
-		}
-	},
-	{
-		path: '/gradeCurricular',
-		name: 'gradeCurricular',
-		component: () => import('../views/CurriculumView/index.vue'),
-		meta: {
-			middleware: AuthMiddleware,
-		}
-	},
-	{
-		path: '/disciplina/:id',
-		component: () => import('../views/SubjectView/index.vue'),
-		meta: {
-			reload: true,
-			middleware: AuthMiddleware,
+		{
+			path: '/login',
+			name: 'Login',
+			component: () => import('../views/LoginView/index.vue')
 		},
-	},
-	{
-		path: '/docentes',
-		name: 'docentes',
-		component: () => import('../views/TeachersView/index.vue'),
-		meta: {
-			middleware: AuthMiddleware,
+		{
+			path: '/cadastro',
+			name: 'Cadastro',
+			component: () => import('../views/RegisterView/index.vue')
+		},
+		{
+			path: '/',
+			name: 'Home',
+			component: () => import('../views/HomeView/index.vue'),
+			meta: {
+				middleware: AuthMiddleware,
+			}
+		},
+		{
+			path: '/grade-curricular',
+			name: 'GradeCurricular',
+			component: () => import('../views/CurriculumView/index.vue'),
+			meta: {
+				middleware: AuthMiddleware,
+			}
+		},
+		{
+			path: '/disciplina/:id',
+			name: 'Disciplina',
+			component: () => import('../views/SubjectView/index.vue'),
+			meta: {
+				reload: true,
+				middleware: AuthMiddleware,
+			},
+		},
+		{
+			path: '/docentes',
+			name: 'Docentes',
+			component: () => import('../views/TeachersView/index.vue'),
+			meta: {
+				middleware: AuthMiddleware,
+			}
+		},
+		{
+			path: '/contato',
+			name: 'Contato',
+			component: () => import('../views/ContactView/index.vue'),
+			meta: {
+				middleware: AuthMiddleware,
+			}
+		},
+		{
+			path: '/perfil',
+			name: 'Perfil',
+			component: () => import('../views/ProfileView/index.vue'),
+			meta: {
+				middleware: AuthMiddleware,
+			}
+		},
+		{
+			path: '/:pathMatch(.*)*',
+			name: 'PageNotFound',
+			component: () => import('../views/PageNotFound/index.vue'),
 		}
-	},
-	{
-		path: '/contato',
-		name: 'contato',
-		component: () => import('../views/ContactView/index.vue'),
-		meta: {
-			middleware: AuthMiddleware,
-		}
-	},
-	{
-		path: '/perfil',
-		name: 'perfil',
-		component: () => import('../views/ProfileView/index.vue'),
-		meta: {
-			middleware: AuthMiddleware,
-		}
-	}
 	]
 })
 

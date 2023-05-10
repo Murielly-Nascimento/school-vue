@@ -16,6 +16,7 @@
 import { Layout } from '@/layout'
 import { ContactForm } from './_components';
 export default {
+	name: 'ContactView',
 	components: {
 		Layout,
 		ContactForm

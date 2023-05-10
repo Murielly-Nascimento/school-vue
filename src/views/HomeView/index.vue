@@ -2,11 +2,11 @@
 	<Layout>
 		<div class="row">
 			<div class="col-lg">
-				<div id="banner">
+				<div class="banner">
 					<img src="@/assets/img/computador.png" alt="computador" width="661" height="500">
 				</div>
 			</div>
-			<div class="col-lg-6" id="conteudo">
+			<div class="col-lg-6 conteudo">
 				<header class="titulo">
 					<h1><b>Sistemas de Informação</b></h1>
 					<hr>
@@ -36,53 +36,50 @@
 </template>
 
 <script setup>
-	import Layout from '@/layout/Layout.vue';
+import Layout from '@/layout/Layout.vue';
 </script>
 
 <style>
-	#conteudo {
-		margin-bottom: 10px;
-		padding: 50px;
-		text-align: justify;
-	}
+.conteudo {
+	margin-bottom: 10px;
+	padding: 50px;
+	text-align: justify;
+	color: white;
+}
 
-	#banner {
-		position: fixed;
-		bottom: 0;
-		left:0;
-	}
+.banner {
+	position: fixed;
+	bottom: 0;
+	left:0;
+}
 
-	.titulo h1 {
-		font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-		color:#38b6ff;
-		text-align: center;
-	}
+.titulo h1 {
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	color:#38b6ff;
+	text-align: center;
+}
 
-	hr {
-		height: 2px;
-		color: #38b6ff;
-		background-color: #38b6ff;
-		opacity: 1;
-		width: 50%;
-	}
+hr {
+	height: 2px;
+	color: #38b6ff;
+	background-color: #38b6ff;
+	opacity: 1;
+	width: 50%;
+}
 
-	#conteudo {
-		color: white;
-	}
+.btn-salvar{
+	border-radius: 30px;
+	border-style: solid;
+	border-color: #38b6ff;
+	background-color: #0a223c;
+	color: #38b6ff;
+	margin-top: 20px;
+	padding: 10px;
+	width: 200px;
+}
 
-	.btn-salvar{
-		border-radius: 30px;
-		border-style: solid;
-		border-color: #38b6ff;
-		background-color: #0a223c;
-		color: #38b6ff;
-		margin-top: 20px;
-		padding: 10px;
-		width: 200px;
-	}
-
-	.btn-salvar:hover {
-		background-color: #38b6ff;
-		color: #010214;
-	}
+.btn-salvar:hover {
+	background-color: #38b6ff;
+	color: #010214;
+}
 </style>

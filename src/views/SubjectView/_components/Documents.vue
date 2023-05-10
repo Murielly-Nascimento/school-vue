@@ -15,12 +15,13 @@
 import { SImage, StretchedCard } from '@/components';
 
 export default {
+	name: 'Documents',
 	components: {
 		SImage,
 		StretchedCard,
 	},
 	props: {
-		disciplina: {
+		subject: {
 			type: Object,
 		},
 	},

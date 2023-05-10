@@ -15,8 +15,8 @@
 </template>
 
 <script setup>
-	import LogoUfu from '@/components/LogoUfu.vue';
-	import { RegisterWires, RegisterTitle, RegisterForm } from './_components';
+import LogoUfu from '@/components/LogoUfu.vue';
+import { RegisterWires, RegisterTitle, RegisterForm } from './_components';
 </script>
 
 <style>

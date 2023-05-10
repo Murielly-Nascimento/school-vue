@@ -8,3 +8,6 @@ export * from './STextArea';
 export * from './SAccordion';
 export * from './SUploads';
 export * from './STooltip';
+export * from './SPagination';
+export * from './STable';
+export * from './SDatePicker';

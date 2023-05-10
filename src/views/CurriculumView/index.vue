@@ -5,9 +5,9 @@
 				<s-accordion
 					v-for="group in linkGroup"
 					:key="group.id"
-					:title="group.periodo + 'º Período'"
+					:title="group.period + 'º Período'"
 				>
-					<s-button-group align="center" :links="group.disciplinas"></s-button-group>
+					<s-button-group align="center" :links="group.subjects"></s-button-group>
 				</s-accordion>
 			</s-accordion-list>
 		</article>
@@ -18,11 +18,12 @@
 import { Layout } from '@/layout';
 import { SAccordion, SAccordionList, SButtonGroup } from '@/components';
 import {
-	getDisciplinasById,
-	getDisciplinasGroupByPeriodo
-} from '@/mocks/mockDisciplinas';
+	getSubjectsById,
+	getSubjectsGroupByPeriod
+} from '@/mocks/mockSubjects';
 
 export default {
+	name: 'CurriculumView',
 	components: {
 		Layout,
 		SAccordion,
@@ -31,20 +32,20 @@ export default {
 	},
 	data() {
 		return {
-			disciplinas: getDisciplinasGroupByPeriodo(),
-			disciplina: getDisciplinasById(this.$route.params.id),
+			subjects: getSubjectsGroupByPeriod(),
+			subject: getSubjectsById(this.$route.params.id),
 		}
 	},
 	computed: {
 		linkGroup() {
-			return Object.keys(this.disciplinas).map((index) => {
-				const disciplinas = this.disciplinas[index];
-				const first = disciplinas[0];
+			return Object.keys(this.subjects).map((index) => {
+				const subjects = this.subjects[index];
+				const first = subjects[0];
 				return {
 					id: index,
-					periodo: first?.periodo,
-					disciplinas: Object.values(disciplinas)
-						.map(({ nome: title, id }) => (
+					period: first?.period,
+					subjects: Object.values(subjects)
+						.map(({ name: title, id }) => (
 							{ id, title, link: '/disciplina/' + id }
 						))
 				}

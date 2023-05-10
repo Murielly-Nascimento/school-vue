@@ -1,17 +1,17 @@
 <template>
-    <div class="d-tooltip" :style="{ 'width': containerWidth }">
+    <div class="s-tooltip--ufu" :style="{ 'width': containerWidth }">
 		<slot></slot>
-      	<span class="d-tooltip--text"
+      	<span class="s-tooltip__text--ufu"
 		  	:class="{
-				'd-left': left,
-				'd-right': right,
-				'd-top--center': top,
-				'd-bottom--center': bottom,
-				'd-top--left': topLeft,
-				'd-top--right': topRight,
-				'd-bottom--left': bottomLeft,
-				'd-bottom--right': bottomRight,
-				'fixed-arrow': fixedArrow,
+				's-left': left,
+				's-right': right,
+				's-top--center': top,
+				's-bottom--center': bottom,
+				's-top--left': topLeft,
+				's-top--right': topRight,
+				's-bottom--left': bottomLeft,
+				's-bottom--right': bottomRight,
+				's-fixed-arrow': fixedArrow,
 			}"
 			:style="{
 				'width': size,
@@ -96,18 +96,18 @@ export default {
 
 <style scoped lang="scss">
 $color: #555;
-.d-tooltip {
+.s-tooltip {
 	position: relative;
 	display: inline-block;
 	opacity: 1;
 
 	&:hover {
-		.d-tooltip--text {
+		.s-tooltip__text--ufu {
 			visibility: visible;
 		}
 	}
 
-	.d-tooltip--text {
+	.s-tooltip__text--ufu {
 		visibility: hidden;
 		background-color: #555;
 		color: #fff;
@@ -121,8 +121,8 @@ $color: #555;
 		position: absolute;
 		z-index: 1;
 
-		&.fixed-arrow {
-			&.d-top {
+		&.s-fixed-arrow {
+			&.s-top {
 				&--left {
 					bottom: 100%;
 					left: 0;
@@ -144,7 +144,7 @@ $color: #555;
 					}
 				}
 			}
-			&.d-bottom {
+			&.s-bottom {
 				&--left {
 					top: 100%;
 					left: 0;
@@ -168,7 +168,7 @@ $color: #555;
 			}
 		}
 
-		&.d-right {
+		&.s-right {
 			top: -5px;
 			left: 105%;
 			&::after {
@@ -182,7 +182,7 @@ $color: #555;
 				border-color: transparent $color transparent transparent;
 			}
 		}
-		&.d-left {
+		&.s-left {
 			top: -5px;
 			right: 105%;
 			&::after {
@@ -196,7 +196,7 @@ $color: #555;
 				border-color: transparent transparent transparent $color;
 			}
 		}
-		&.d-top {
+		&.s-top {
 			&--left {
 				bottom: 100%;
 				left: 0;
@@ -243,7 +243,7 @@ $color: #555;
 				}
 			}
 		}
-		&.d-bottom {
+		&.s-bottom {
 			&--left {
 				top: 100%;
 				left: 0;

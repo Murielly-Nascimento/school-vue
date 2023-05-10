@@ -1,15 +1,15 @@
 <template>
-	<layout :title="disciplina.nome">
+	<layout :title="subject.name">
 		<article>
 			<s-tabs inner-class="mt-5">
 				<s-tab-item title="Documentos">
-					<documents :disciplina="disciplina"></documents>
+					<documents :subject="subject"></documents>
 				</s-tab-item>
 				<s-tab-item title="Ementa">
-					<course-program :disciplina="disciplina"></course-program>
+					<course-program :subject="subject"></course-program>
 				</s-tab-item>
 				<s-tab-item title="Adicionar">
-					<add-resource :disciplina="disciplina" action="/"></add-resource>
+					<add-resource :subject="subject" action="/"></add-resource>
 				</s-tab-item>
 			</s-tabs>
 		</article>
@@ -20,10 +20,10 @@
 import { Layout } from '@/layout';
 import { STabs, STabItem } from '@/components';
 import { Documents, CourseProgram, AddResource } from './_components';
-import { getDisciplinasById } from '@/mocks/mockDisciplinas';
+import { getSubjectsById } from '@/mocks/mockSubjects';
 
 export default {
-	name: 'DisciplinaView',
+	name: 'SubjectView',
 	components: {
 		Layout,
 		STabs,
@@ -34,7 +34,7 @@ export default {
 	},	
 	data() {
 		return {
-			disciplina: getDisciplinasById(this.$route.params.id),
+			subject: getSubjectsById(this.$route.params.id),
 		}	
 	},		
 }	

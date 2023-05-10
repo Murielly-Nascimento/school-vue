@@ -17,8 +17,8 @@
 </template>
 
 <script setup>
-	import LogoUfu from '@/components/LogoUfu.vue';
-	import { LoginTitle, LoginForm, LoginBanner } from './_components';
+import LogoUfu from '@/components/LogoUfu.vue';
+import { LoginTitle, LoginForm, LoginBanner } from './_components';
 </script>
 
 <style>

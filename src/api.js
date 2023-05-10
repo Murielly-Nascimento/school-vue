@@ -1,7 +1,8 @@
 import axios from "axios";
-import { SessionHelper } from "./helpers";
+import { useSession } from "@/helpers";
 
 const env = import.meta.env;
+const session = useSession();
 
 export const baseURL = env?.VITE_API_URL ? env?.VITE_API_URL : "https://localhost:3000";
   
@@ -9,9 +10,10 @@ export const api = axios.create({
   baseURL: baseURL,
 });
 
+
 api.interceptors.request.use(function (config) {
   config.headers["Content-Type"] = "application/json";
-  const item = SessionHelper.getDecodedItem("tk");
+  const item = session.getDecodedItem("tk");
   if (item && item.access_token) {
     config.headers.Authorization = `Bearer ${item.access_token}`;
   }

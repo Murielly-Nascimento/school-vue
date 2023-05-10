@@ -1,15 +1,3 @@
-<script setup>
-	import LogoUfu from '../components/LogoUfu.vue';
-	import { logout } from '@/services';
-</script>
-
-<script>
-export default {
-	methods: {
-	},
-}
-</script>
-
 <template>
 	<header class="app-header">
 		<div class="row">
@@ -19,17 +7,17 @@ export default {
 			<div class="col pr-4">
 				<nav class="navegacao d-flex justify-content-end">
 					<router-link class="nav-item" to="/">Home</router-link>
-					<router-link class="nav-item" to="/gradeCurricular">Grade Curricular</router-link>
+					<router-link class="nav-item" to="/grade-curricular">Grade Curricular</router-link>
 					<router-link class="nav-item" to="/docentes">Docentes</router-link>
 					<router-link class="nav-item" to="/contato">Contato</router-link>
 					<div class="dropdown">
 						<button
-							class="btn-profile"
+						class="btn-profile"
 							type="button"
 							id="profile-dropdown"
 							data-bs-toggle="dropdown"
 							aria-expanded="false"
-						>
+							>
 							<font-awesome-icon icon="fa-solid fa-circle-user" />
 						</button>
 						<ul class="dropdown-menu profile-dropdown" aria-labelledby="profile-dropdown">
@@ -45,6 +33,11 @@ export default {
 		</div>
 	</header>
 </template>
+
+<script setup>
+import LogoUfu from '../components/LogoUfu.vue';
+import { logout } from '@/services';
+</script>
 
 <style lang="scss">
 	.btn-profile {

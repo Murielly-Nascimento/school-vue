@@ -34,7 +34,7 @@
 <script>
 import { AppForm } from '@/mixins';
 import { Form, Field, ErrorMessage, defineRule } from 'vee-validate';
-import { SessionHelper } from '@/helpers'
+import { useSession } from '@/helpers'
 import { getUser } from '@/services'
 
 export default {
@@ -44,6 +44,10 @@ export default {
 		Form,
 		Field,
 		ErrorMessage,
+	},
+	setup() {
+		const session = useSession();
+		return { session };
 	},
 	data() {
 		return {
@@ -83,7 +87,7 @@ export default {
         onSuccess(data) {
             this.submiting = false;
 
-            SessionHelper.setEncodedItem('tk', data);
+            this.session.setEncodedItem('tk', data);
 			this.$router.push('/')
         },
 	},

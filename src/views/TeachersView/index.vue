@@ -1,11 +1,11 @@
 <template>
   <layout title="Docentes">
 	<div class="container">
-		<div class="s-teacher-list--ufu" v-for="docente in docentes" :key="docente.id">
+		<div class="s-teacher-list--ufu" v-for="teacher in teachers" :key="teacher.id">
 			<stretched-card
-				:image="avatar[docente.sexo]"
-				:title="docente.nome"
-				:text="docente.interesses"
+				:image="avatar[teacher.sex]"
+				:title="teacher.name"
+				:text="teacher.interests"
 			></stretched-card>
 		</div>
 	</div>
@@ -15,17 +15,17 @@
 <script>
 import { Layout } from "@/layout";
 import { StretchedCard } from '@/components';
-import { docentes } from '@/mocks/mockDocentes.js';
+import { teachers } from '@/mocks/mockTeachers.js';
 
 export default {
-	name: "ListaDeDocentes",
+	name: "TeachersView",
 	components: {
 		Layout,
 		StretchedCard
 	},
 	data() {
 		return {
-			docentes,
+			teachers,
 			avatar: {
 				male: `@/assets/img/gentleman.png`,
 				female: `@/assets/img/lady.png`,

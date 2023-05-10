@@ -6,6 +6,7 @@
 
 <script>
 import Dropzone from 'dropzone';
+import "dropzone/dist/dropzone.css";
 export default {
     props: {
         id: {
@@ -376,8 +377,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "node_modules/dropzone/dist/dropzone.css";
-
 .vue-dropzone {
     border: 2px dashed rgb(3, 100, 190) !important;
     font-family: 'Arial', sans-serif;

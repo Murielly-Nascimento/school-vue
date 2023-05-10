@@ -25,7 +25,7 @@
 
 <script>
 import _ from 'lodash';
-import { SessionHelper } from "@/helpers";
+import { useSession } from "@/helpers";
 import { baseURL } from '@/api'
 import SDropzone from './SDropzone.vue'
 
@@ -34,6 +34,10 @@ export default {
     components: {
         SDropzone
     },
+	setup() {
+		const session = useSession();
+		return { session };
+	},
     props: {
         url: {
             type: String,
@@ -86,7 +90,7 @@ export default {
             uploadUrl: '',
             defaultUrl: baseURL + '/media/upload',
             headers: {
-                Authorization: `Bearer ${SessionHelper.getDecodedItem("tk")?.access_token}`
+                Authorization: `Bearer ${this.session.getDecodedItem("tk")?.access_token}`
             },
         }
     },
@@ -144,7 +148,7 @@ export default {
             });
         },
         onSuccess(file, response) {
-            console.log('onSuccess');
+            // console.log('onSuccess');
             if (!file.type.includes('image')) {
                 setTimeout(function () {
                     //FIXME jquery
@@ -153,13 +157,13 @@ export default {
             }
         },
         onUploadError(file, error) {
-            console.log('onUploadError');
+            // console.log('onUploadError');
             const errorMessage = typeof error == 'string' ? error : error.message;
             this.$notify({ type: 'error', title: 'Erro!', text: errorMessage });
             $(file.previewElement).find('.dz-error-message span').text(errorMessage);
         },
         onFileDelete(file, error, xhr) {
-            console.log('onFileDelete');
+            // console.log('onFileDelete');
             const deletedFileIndex = _.findIndex(this.mutableUploadedImages, { url: file.url });
             if (deletedFileIndex >= 0 && this.mutableUploadedImages[deletedFileIndex]) {
                 this.mutableUploadedImages[deletedFileIndex]['deleted'] = true;

@@ -47,7 +47,7 @@
 <script>
 import { AppForm } from '@/mixins';
 import { Form, Field, ErrorMessage } from 'vee-validate';
-import { SessionHelper } from '@/helpers'
+import { useSession } from '@/helpers'
 import { login } from '@/services'
 
 export default {
@@ -56,6 +56,10 @@ export default {
 		Field,
 		VeeForm: Form,
 		ErrorMessage,
+	},
+	setup() {
+		const session = useSession();
+		return { session };
 	},
 	data() {
 		return {
@@ -113,7 +117,7 @@ export default {
 			setTimeout(() => {
 				login(this.form.email, this.form.password)
 					.then(response => {
-						SessionHelper.setEncodedItem('tk', response);
+						this.session.setEncodedItem('tk', response);
 						this.$router.push('/')
 					})
 					.catch(error => {

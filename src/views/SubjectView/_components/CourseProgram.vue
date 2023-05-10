@@ -8,7 +8,7 @@
 		<div class="row bordered">
 			<div class="col" id="descricao">
 				<h4>Descrição</h4>
-				<p>{{ disciplina.descricao }}</p>
+				<p>{{ subject.description }}</p>
 			</div>
 		</div>
 	</div>
@@ -16,16 +16,16 @@
 
 <script>
 import { StretchedCard } from '@/components';
-import { getDisciplinasById } from '@/mocks/mockDisciplinas';
 
 export default {
+	name: 'CourseProgram',
 	components: {
 		StretchedCard
 	},
-	data() {
-		return {
-			disciplina: getDisciplinasById(this.$route.params.id),
-		}
+	props: {
+		subject: {
+			type: Object,
+		},
 	},
 }
 </script>

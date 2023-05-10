@@ -56,7 +56,7 @@ export default {
         SUpload,
     },
 	props: {
-		disciplina: {
+		subject: {
 			type: Object,
 		},
 	},

@@ -1,4 +1,4 @@
-export const periodos = [
+export const periods = [
     {
         id: 1,
         name: '1º Periodo'

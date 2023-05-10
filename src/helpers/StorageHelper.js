@@ -1,71 +1,53 @@
-const StorageHelper = {
-    storage: localStorage,
-    getDecodedItem(key) {
-        var value, item = this.storage.getItem(key);
+export class StorageHelper {
+    constructor(storage) {
+        this.storage = storage;
+    }
 
-        if (item != undefined && item != null) {
-            item = atob(item);
+    static create(storage) {
+        return new StorageHelper(storage);
+    }
 
-            if (item != undefined && item != null) {
-                try {
-                    value = JSON.parse(item);
-                } catch (e) {
-                    value = item;
-                }
-            } else {
-                value = item;
-            }
+    isValidItem(item) {
+        return item !== undefined && item !== null;
+    }
+
+    getDecodedItem(key, defaultVal) {
+        const item = this.storage.getItem(key);
+        try {
+            return JSON.parse(atob(item));
+        } catch (e) {
+            return item !== undefined ? item : defaultVal;
         }
+    }
 
-        return value;
-    },
     setEncodedItem(key, value) {
-        var item = value;
-        if (item != undefined && item != null && typeof item == 'object') {
-            item = JSON.stringify(item);
-
-            if (item != undefined && item != null) {
-                item = btoa(item);
-            }
-        }
+        const item = typeof value == 'object' ?
+            btoa(JSON.stringify(value)) : value;
 
         this.storage.setItem(key, item);
-    },
-    getItem(key) {
-        var value, item = this.storage.getItem(key);
-        if (item != undefined && item != null) {
-            try {
-                value = JSON.parse(item);
-            } catch (e) {
-                value = item;
-            }
-        }
+    }
 
-        return value;
-    },
-    getItemByIndex(key, index) {
-        var value = this.getItem(key);
-        return value[index];
-    },
+    getItem(key, defaultVal) {
+        const item = this.storage.getItem(key);
+        try {
+            return JSON.parse(item);
+        } catch (e) {
+            return item !== undefined ? item : defaultVal;
+        }
+    }
+
     setItem(key, value) {
-        var item = value;
-        if (item != undefined && item != null && typeof item == 'object') {
-            item = JSON.stringify(item);
-        }
+        const item = typeof value == 'object' ?
+            JSON.stringify(value) : value;
 
         this.storage.setItem(key, item);
-    },
+    }
+
     addItem(key, value) {
-        var storage = this.getItem(key);
+        var storage = this.getItem(key, []);
+        this.setItem(key, [ ...storage, value ]);
+    }
 
-        if (storage === undefined) {
-            storage = [value];
-        } else {
-            storage.push(value);
-        }
-
-        this.setItem(key, storage);
-    },
     updateItem(key, value, index) {
         var items = this.getItem(key);
 
@@ -74,10 +56,21 @@ const StorageHelper = {
         }
 
         this.setItem(key, items);
-    },
+    }
+
     remove(key) {
         this.storage.removeItem(key);
     }
+
+    getStorage() {
+        return this.storage;
+    }
 }
 
-export default StorageHelper;
+export const useSession = () => {
+    return StorageHelper.create(sessionStorage);
+}
+
+export const useStorage = () => {
+    return StorageHelper.create(localStorage);
+}

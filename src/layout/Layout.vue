@@ -14,6 +14,7 @@
 
 <script>
 import NavBar from './NavBar.vue';
+import '@/assets/scss/main.scss';
 
 export default {
 	components: {
@@ -29,8 +30,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '@/assets/scss/main.scss';
-
 main.app-body {
 	.app-container {
 		margin-top: 20px;
