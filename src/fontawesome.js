@@ -2,7 +2,7 @@
 import { library } from '@fortawesome/fontawesome-svg-core'
 
 /* import font awesome icon component */
-export { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
@@ -15,14 +15,16 @@ import { faCloudArrowUp } from '@fortawesome/free-solid-svg-icons'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 
 
-export const initFontawesome = () => {
+export const initFontawesome = (app) => {
     /* add icons to the library */
-    library.add(faArrowRight)
-    library.add(faArrowLeft)
-    library.add(faCircleUser)
-    library.add(faDownload)
-    library.add(faLink)
-    library.add(faPersonThroughWindow)
-    library.add(faCloudArrowUp)
-    library.add(faSpinner)
+    library.add(faArrowRight);
+    library.add(faArrowLeft);
+    library.add(faCircleUser);
+    library.add(faDownload);
+    library.add(faLink);
+    library.add(faPersonThroughWindow);
+    library.add(faCloudArrowUp);
+    library.add(faSpinner);
+
+    app.component('font-awesome-icon', FontAwesomeIcon);
 }

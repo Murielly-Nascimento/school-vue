@@ -1,7 +1,7 @@
-import GerenciarAcesso from "@/helpers/GerenciarAcesso";
+import { validateAccess } from "@/services";
 
 export default async function log({ next, to }) {
-    await GerenciarAcesso.check();
+    await validateAccess();
 
     return next();
 }

@@ -1,0 +1,1 @@
+export { default as StretchedCard } from './StretchedCard.vue';

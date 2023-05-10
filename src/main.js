@@ -1,27 +1,34 @@
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
-import App from './App.vue';
-import router from './router';
 
-import './ajax';
-import './registerServiceWorker';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/js/bootstrap.bundle';
+import Notifications from '@kyvg/vue3-notification';
+import VueCookies from 'vue-cookies';
+import VueTheMask from 'vue-the-mask';
 
-import { FontAwesomeIcon, initFontawesome } from './fontawesome'
+import App from '@/App.vue';
+import router from '@/router';
 
-const pinia = createPinia()
-const app = createApp(App)
+import { initFontawesome } from '@/fontawesome';
 
-initFontawesome();
+import '@/jquery';
+import '@/ajax';
+import '@/bootstrap';
+import '@/registerServiceWorker';
 
-app.config.globalProperties.$baseUrl = import.meta.env.VITE_API_URL;
-app.component('font-awesome-icon', FontAwesomeIcon)
+const pinia = createPinia();
+const app = createApp(App);
 
-app.use(router)
-app.use(pinia)
+initFontawesome(app);
 
-app.mount('#app')
+// app.config.globalProperties.$baseUrl = import.meta.env.VITE_API_URL;
+
+app.use(router);
+app.use(pinia);
+app.use(VueCookies, { expires: '1d'});
+app.use(Notifications);
+app.use(VueTheMask);
+
+app.mount('#app');
 
 
   

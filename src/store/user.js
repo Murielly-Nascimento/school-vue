@@ -1,10 +1,11 @@
 import { defineStore } from 'pinia'
-import { SessionHelper } from '@/helpers';
 import { getUser } from '@/services';
+// import { useSession } from '@/helpers';
 
 export const useUser = defineStore('user', {
     state: () => ({
         user: null,
+        // session: useSession(),
     }),
     getters: {
         getUser(state) {
@@ -13,8 +14,7 @@ export const useUser = defineStore('user', {
     },
     actions: {
         async loadUser () {
-            const access_token = SessionHelper.getDecodedItem('tk');
-            const res = await getUser(id)
+            const res = await getUser()
             this.updateUser(res)
         },
         updateUser (payload) {
