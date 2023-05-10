@@ -1,7 +1,7 @@
 import { useSession } from "@/helpers";
 import { getUser } from '@/services';
 import { useUser } from '@/store';
-import { UnauthorizedException } from "@/exceptions";
+import { UnauthorizedException } from "@/errors";
 import { refresh } from '@/services';
 
 const session = useSession();
