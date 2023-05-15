@@ -1,5 +1,27 @@
 <template>
 	<vee-form @submit="onSubmit">
+		<div class="row">
+			<div class="col">
+				<div class="d-flex justify-content-center">
+					<div class="form-check">
+						<input v-model="form.sex" class="form-check-input" type="radio" name="sexOption" value="1" id="checkFemale">
+						<label class="form-check-label" for="checkFemale">
+							Feminino
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="d-flex justify-content-center">
+					<div class="form-check">
+						<input v-model="form.sex" class="form-check-input" type="radio" name="sexOption" value="2" id="checkMale">
+						<label class="form-check-label" for="checkMale">
+							Masculino
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
 		<div>
 			<field v-model="form.firstName" name="nome" type="text" :rules="validarCampo" autocomplete="off" placeholder="Nome" class="s-form__field--ufu"></field>
 			<error-message name="nome" class="text-danger text-center"/>
@@ -9,7 +31,7 @@
 			<error-message name="sobrenome" class="text-danger text-center"/>
 		</div>
 		<div>
-			<field v-model="form.registration" name="matricula" type="text" :rules="validarCampo" autocomplete="off" placeholder="Matrícula" class="s-form__field--ufu"></field>
+			<field v-model="form.ufuRegister" name="matricula" type="text" :rules="validarCampo" autocomplete="off" placeholder="Matrícula" class="s-form__field--ufu"></field>
 			<error-message name="matricula" class="text-danger text-center"/>
 		</div>
 		<div>
@@ -20,7 +42,6 @@
 			<field v-model="form.password" name="senha" type="password" :rules="validarSenha" autocomplete="off" placeholder="Senha" class="s-form__field--ufu"></field>
 			<error-message name="senha" class="text-danger text-center"/>
 		</div>
-
 		<div class="alert alert-success mt-4 mx-2" role="alert" v-if="messageSuccess.length">
 			{{ messageSuccess }}
 		</div>
@@ -50,13 +71,14 @@ import { Form, Field, ErrorMessage } from 'vee-validate';
 import { useSession } from '@/helpers'
 import { login } from '@/services'
 
+
 export default {
 	mixins: [AppForm],
 	components: {
-		Field,
-		VeeForm: Form,
-		ErrorMessage,
-	},
+    Field,
+    VeeForm: Form,
+    ErrorMessage,
+},
 	setup() {
 		const session = useSession();
 		return { session };
@@ -66,9 +88,10 @@ export default {
 			form: {
 				firstName: '',
 				lastName: '',
-				registration: '',
+				ufuRegister: '',
 				email: '',
 				password: '',
+				sex:'',
 			},
 			messageError: '',
 			messageSuccess: '',
@@ -166,5 +189,9 @@ export default {
 	.btn-salvar:hover{
 		background-color: #38b6ff;
 		color: #010214;
+	}
+
+	.form-check-label{
+		color: white;
 	}
 </style>
