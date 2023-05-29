@@ -20,7 +20,8 @@
 
 <script setup>
 import LogoUfu from '@/components/LogoUfu.vue';
-import { RegisterWires, RegisterTitle, RegisterForm, RegisterIcon } from './_components';
+import RegisterIcon from '@/components/RegisterIcon.vue';
+import { RegisterWires, RegisterTitle, RegisterForm } from './_components';
 </script>
 
 <style>
