@@ -51,7 +51,6 @@
 <script>
 import { AppForm } from '@/mixins';
 import { Form, Field, ErrorMessage } from 'vee-validate';
-import { SMultiselect } from '@/components';
 
 export default {
 	mixins: [AppForm],
@@ -59,7 +58,6 @@ export default {
     Field,
     VeeForm: Form,
     ErrorMessage,
-	SMultiselect,
 },
 data() {
 	return {
