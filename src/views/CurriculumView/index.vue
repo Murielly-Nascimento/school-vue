@@ -1,5 +1,6 @@
 <template>
 	<Layout title="Grade Curricular">
+		<subject-register></subject-register>
 		<article>
 			<s-accordion-list align="center">
 				<s-accordion
@@ -15,6 +16,7 @@
 </template>
 
 <script>
+import { SubjectRegister } from './_components';
 import { Layout } from '@/layout';
 import { SAccordion, SAccordionList, SButtonGroup } from '@/components';
 import {
@@ -29,6 +31,7 @@ export default {
 		SAccordion,
 		SAccordionList,
 		SButtonGroup,
+		SubjectRegister,
 	},
 	data() {
 		return {
