@@ -1,0 +1,10 @@
+export { default as AdicionarView } from './AdicionarView.vue';
+export { default as CadastroView } from './CadastroView.vue';
+export { default as ContatoView } from './ContatoView.vue';
+export { default as DisciplinaView } from './DisciplinaView.vue';
+export { default as DocentesView } from './DocentesView.vue';
+export { default as EmentaView } from './EmentaView.vue';
+export { default as GradeCurricularView } from './GradeCurricularView.vue';
+export { default as HomeView } from './HomeView.vue';
+export { default as LoginView } from './LoginView.vue';
+export { default as PerfilView } from './PerfilView.vue';

@@ -32,9 +32,9 @@
                     </div>
 				</div>
 			</div>
-			<div class="row btn-enviar">
+			<div class="row">
 				<div class="col">
-					<button class="btn" role="button" href="#">
+					<button class="btn btn-enviar" role="button" href="#">
 						<b>Enviar</b> 
 					</button>
 				</div>
@@ -44,8 +44,8 @@
 </template>
 
 <script>
-import { AppForm } from '@/mixins';
 import { SMultiselect, STextArea, SUpload } from '@/components';
+import { AppForm } from '@/mixins';
 
 export default {
     name: 'AddResource',

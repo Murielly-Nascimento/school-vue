@@ -6,10 +6,19 @@
 			</div>
 			<div class="col pr-4">
 				<nav class="navegacao d-flex justify-content-end">
-					<router-link class="nav-item" to="/">Home</router-link>
-					<router-link class="nav-item" to="/grade-curricular">Grade Curricular</router-link>
-					<router-link class="nav-item" to="/docentes">Docentes</router-link>
-					<router-link class="nav-item" to="/contato">Contato</router-link>
+					<router-link
+						v-for="route in routes"
+						:class="'nav-item'"
+						:key="route.link"
+						:to="route.link"
+						v-text="route.name"
+					></router-link>
+					<!-- 
+					<router-link class="nav-item" :class="{'active': linkClasses['/']}" to="/">Home</router-link>
+					<router-link class="nav-item" :class="{'active': linkClasses['/grade-curricular']}" to="/grade-curricular">Grade Curricular</router-link>
+					<router-link class="nav-item" :class="{'active': linkClasses['/docentes']}" to="/docentes">Docentes</router-link>
+					<router-link class="nav-item" :class="{'active': linkClasses['/contato']}" to="/contato">Contato</router-link>
+					-->
 					<div class="dropdown">
 						<button
 						class="btn-profile"
@@ -34,9 +43,41 @@
 	</header>
 </template>
 
-<script setup>
-import LogoUfu from '../components/LogoUfu.vue';
+<script>
 import { logout } from '@/services';
+import LogoUfu from '../components/LogoUfu.vue';
+
+export default {
+	components: {
+		logout,
+		LogoUfu
+	},
+	data() {
+		return {
+			routes: [
+				{ link: '/', name: 'Início', active: false },
+				{ link: '/grade-curricular', name: 'Grade Curricular', active: false },
+				{ link: '/docentes', name: 'Docentes', active: false },
+				{ link: '/contato', name: 'Contato', active: false },
+			]
+		}
+	},
+	created () {
+		// this.setActive();
+	},
+	methods: {
+		// setActive(suffix) {
+		// 	this.routes.forEach(route => {
+		// 		route.active = this.hasRoute(suffix)
+		// 	});
+		// },
+		// hasRoute(suffix) {
+		// 	const { href, search } = location;
+		// 	return href.replace(search, '').includes(suffix);
+		// }
+	},
+}
+
 </script>
 
 <style lang="scss">
@@ -69,6 +110,11 @@ import { logout } from '@/services';
 			padding: 10px;
 			font-size: 16px;
 			color:white;
+
+			&.nav-item.router-link-active {
+				color: var(--bs-info);
+				font-weight: bold;
+			}
 
 			&:hover{
 				color:#38b6ff;
