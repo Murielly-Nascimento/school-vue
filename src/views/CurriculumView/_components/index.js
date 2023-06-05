@@ -1,0 +1,1 @@
+export { default as SubjectRegister } from './SubjectRegister.vue';
