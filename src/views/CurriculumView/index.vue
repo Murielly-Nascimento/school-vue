@@ -7,6 +7,7 @@
 					v-for="group in linkGroup"
 					:key="group.id"
 					:title="group.period + 'º Período'"
+					
 				>
 					<s-button-group align="center" :links="group.subjects"></s-button-group>
 				</s-accordion>
@@ -19,10 +20,8 @@
 import { SubjectRegister } from './_components';
 import { Layout } from '@/layout';
 import { SAccordion, SAccordionList, SButtonGroup } from '@/components';
-import {
-	getSubjectsById,
-	getSubjectsGroupByPeriod
-} from '@/mocks/mockSubjects';
+import { getSubjects } from '@/services';
+import groupBy from 'lodash/groupBy';
 
 export default {
 	name: 'CurriculumView',
@@ -35,14 +34,21 @@ export default {
 	},
 	data() {
 		return {
-			subjects: getSubjectsGroupByPeriod(),
-			subject: getSubjectsById(this.$route.params.id),
+			listOfSubjects: [],
 		}
+	},
+	beforeCreate(){
+		getSubjects()
+			.then(response => {
+				this.listOfSubjects = groupBy(response.data, 'period');
+				console.log(this.listOfSubjects);
+			})
+			.catch(error => console.warn(error));
 	},
 	computed: {
 		linkGroup() {
-			return Object.keys(this.subjects).map((index) => {
-				const subjects = this.subjects[index];
+			return Object.keys(this.listOfSubjects).map((index) => {
+				const subjects = this.listOfSubjects[index];
 				const first = subjects[0];
 				return {
 					id: index,
@@ -57,4 +63,5 @@ export default {
 	}
 }
 </script>
+
 

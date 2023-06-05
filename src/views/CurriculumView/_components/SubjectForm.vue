@@ -82,6 +82,7 @@ methods: {
 	onSuccess(data) {
 		this.submiting = false;
 		this.messageSuccess = 'Cadastro Efetuado com sucesso';
+		this.$router.go()
 	},
 	onFail() {
 		this.submiting = false;
