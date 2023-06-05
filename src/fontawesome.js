@@ -13,6 +13,7 @@ import { faDownload } from '@fortawesome/free-solid-svg-icons'
 import { faLink } from '@fortawesome/free-solid-svg-icons'
 import { faCloudArrowUp } from '@fortawesome/free-solid-svg-icons'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
 
 export const initFontawesome = (app) => {
@@ -25,6 +26,7 @@ export const initFontawesome = (app) => {
     library.add(faPersonThroughWindow);
     library.add(faCloudArrowUp);
     library.add(faSpinner);
+	library.add(faTrash);
 
     app.component('font-awesome-icon', FontAwesomeIcon);
 }

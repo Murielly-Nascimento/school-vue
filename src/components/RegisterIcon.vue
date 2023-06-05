@@ -2,7 +2,7 @@
 	<div class="col">
 		<div class="d-flex justify-content-center">
 			<div :class="'s-icon__' + sex + '--ufu'">
-				<s-image :source="sources[sex]" alt="sexIcon" width="92" height="89" />
+				<s-image :source="sources[sex]" alt="sexIcon" width="136" height="115" />
 			</div>
 		</div>
 	</div>
