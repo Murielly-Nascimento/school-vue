@@ -1,7 +1,7 @@
 <template>
 	<div class="row">
 		<div class="col">
-			<div v-if="form.sex == 1">
+			<div v-if="userInfo.sex == 'Female'">
 				<register-icon sex="female"></register-icon>
 			</div>
 			<div v-else>
@@ -10,16 +10,16 @@
 		</div>
 		<div class="col">
 			<div class="btn btn-salvar">
-				Igor Carvalho Reis{{ form.firstName }} {{ form.lastName }}
+				{{ userInfo.firstName }} {{ userInfo.lastName }}
 			</div>
 			<div class="btn btn-salvar">
-				igor.carvalho@ufu.br<b>{{ form.email }} </b>
+				<b>{{ userInfo.email }} </b>
 			</div>
 			<div class="btn btn-salvar">
 				<b>*************</b>
 			</div>
 			<div class="btn btn-salvar">
-				113BSI111{{ form.ufuRegister }}
+				{{ userInfo.register_number }}
 			</div>
 		</div>
 	</div>
@@ -34,44 +34,23 @@
 </template>
 
 <script>
-import { AppForm } from '@/mixins';
-import { Form, Field, ErrorMessage } from 'vee-validate';
-import { useSession } from '@/helpers';
-import { getUser } from '@/services';
+import { getUserData } from '@/services';
 import RegisterIcon from '@/components/RegisterIcon.vue';
 
 export default {
-	mixins: [AppForm],
+	name: 'ProfileView',
 	components: {
-		Field,
-		VeeForm: Form,
-		ErrorMessage,
 		RegisterIcon
-	},
-	setup() {
-		const session = useSession();
-		return { session };
 	},
 	data() {
 		return {
-			form: {
-				firstName: '',
-				lastName: '',
-				ufuRegister: '',
-				email: '',
-				password: '',
-				sex:'',
-			},
-			messageError: '',
-			messageSuccess: '',
+			userInfo: null,
 		}
 	},
-	beforeCreate(){
-		getUser()
-			.then(async _ => {
-				this.data = form
-			})
-			.catch(error => console.warn('Not authenticated'));
+	created(){
+		const res = getUserData();
+		this.userInfo = res;
+		console.log(this.userInfo);	
 	}
 };
 </script>

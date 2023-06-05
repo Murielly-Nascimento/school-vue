@@ -80,3 +80,7 @@ export const isValid = async () => {
 		return false;
 	}
 }
+
+export const getUserData = () => {
+	return access.userData;
+}
