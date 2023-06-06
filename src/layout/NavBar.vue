@@ -1,18 +1,23 @@
 <template>
 	<header class="app-header">
-		<div class="row">
-			<div class="col">
+		<div class="row h-100">
+			<div class="col col-md-12 col-xl app-header-item">
+				<button class="toggle-navigation">
+					<font-awesome-icon :icon="['far', 'bars']" />
+				</button>
 				<logo-ufu></logo-ufu>
 			</div>
-			<div class="col pr-4">
-				<nav class="navegacao d-flex justify-content-end">
-					<router-link
-						v-for="route in routes"
-						:class="'nav-item'"
-						:key="route.link"
-						:to="route.link"
-						v-text="route.name"
-					></router-link>
+			<div class="col col-md-12 col-xl pr-4 app-header-item">
+				<div class="d-flex d-flex justify-content-center justify-content-xl-end mt-3 mt-xl-0">
+					<nav class="navigation">
+						<router-link
+							v-for="route in routes"
+							:class="'nav-item'"
+							:key="route.link"
+							:to="route.link"
+							v-text="route.name"
+						></router-link>
+					</nav>
 					<!-- 
 					<router-link class="nav-item" :class="{'active': linkClasses['/']}" to="/">Home</router-link>
 					<router-link class="nav-item" :class="{'active': linkClasses['/grade-curricular']}" to="/grade-curricular">Grade Curricular</router-link>
@@ -21,7 +26,7 @@
 					-->
 					<div class="dropdown">
 						<button
-						class="btn-profile"
+							class="btn-profile"
 							type="button"
 							id="profile-dropdown"
 							data-bs-toggle="dropdown"
@@ -33,11 +38,11 @@
 							<li>
 								<router-link class="dropdown-item" to="/perfil">Perfil</router-link>
 								<hr class="profile-dropdown-divisor" />
-							</li>
+							</li>app-header-item
 							<li><button type="button" @click="logout">Sair</button></li>
 						</ul>
 					</div>
-				</nav>
+				</div>
 			</div>
 		</div>
 	</header>
@@ -81,81 +86,173 @@ export default {
 </script>
 
 <style lang="scss">
-	.btn-profile {
-		margin: {
-			left: 1rem;
-			right: 2rem;
+.btn-profile {
+	margin: {
+		left: 1rem;
+		right: 2rem;
+	}
+	background-color: transparent;
+	padding: 0 !important;
+	border-radius: 50%;
+	border: none;
+	outline: none;
+
+	.fa-circle-user {
+		color: #38b6ff;
+	}
+}
+
+.navigation {
+	text-align: right;
+	margin-right: 10px;
+	margin-bottom: 40px;
+
+	a {
+		display: inline-block;
+		text-decoration: none;
+		padding: 10px;
+		font-size: 16px;
+		color:white;
+
+		&.nav-item.router-link-active {
+			color: var(--bs-info);
+			font-weight: bold;
 		}
-		background-color: transparent;
-		padding: 0 !important;
-		border-radius: 50%;
+		&:hover{
+			color:#38b6ff;
+		}
+	}
+
+	.nav-item {
+		font-family: "Garet";
+		text-transform: uppercase;
+	}
+}
+
+.profile-dropdown {
+	background-color: #38b6ff;
+	color: black;
+	text-align: center;
+
+	hr.profile-dropdown-divisor {
+		width: 90%;
+		height: 1px;
+		color: #85858545;
+		margin: 0 auto !important;
+	}
+
+	a, button {
+		background-color: inherit;
+		text-align: inherit;
+		color: inherit;
+		width: 100%;
 		border: none;
 		outline: none;
+		padding: 10px;
 
-		.fa-circle-user {
-			font-size: 2.5rem;
-			color: #38b6ff;
+		&:hover{
+			background-color:#294d73;
+			color: #f0f0f5;
+		}
+	}
+}
+
+header.app-header {
+	padding: 10px 40px;
+}
+
+@media (max-width: 699px) {
+	.app-header {
+		height: 150px;
+
+		.app-header-item {
+			height: inherit;
+			display: flex;
+			align-items: center;
 		}
 	}
 
-	.navegacao {
-		text-align: right;
-		margin-top: 20px;
-		margin-right: 10px;
-		margin-bottom: 40px;
-
-		a {
-			display: inline-block;
-			text-decoration: none;
-			padding: 10px;
-			font-size: 16px;
-			color:white;
-
-			&.nav-item.router-link-active {
-				color: var(--bs-info);
-				font-weight: bold;
-			}
-
-			&:hover{
-				color:#38b6ff;
-			}
-		}
-
-		.nav-item {
-			font-family: "Garet";
-			text-transform: uppercase;
-		}
-	}
-
-	.profile-dropdown {
-		background-color: #38b6ff;
-		color: black;
+	.logo-ufu {
+		margin-left: 10px;
 		text-align: center;
+	}
 
-		hr.profile-dropdown-divisor {
-			width: 90%;
-			height: 1px;
-			color: #85858545;
-			margin: 0 auto !important;
-		}
+	.navigation {
+		display: none;
+	}
+	
+	.toggle-navigation {
+		display: block;
+		background-color: transparent;
+		border: none;
+		outline: none;
+	}
 
-		a, button {
-			background-color: inherit;
-			text-align: inherit;
-			color: inherit;
-			width: 100%;
-			border: none;
-			outline: none;
-			padding: 10px;
+	.fa-circle-user {
+		font-size: 3.5rem;
+	}
 
-			&:hover{
-				background-color:#294d73;
-				color: #f0f0f5;
-			}
+	.dropdown {
+		display: flex;
+		align-items: center;
+	}
+}
+
+@media (min-width: 700px) and (max-width: 1199px) {
+	.app-header {
+		height: auto;
+		margin-top: 20px;
+
+		.app-header-item {
+			height: inherit;
+			display: block;
 		}
 	}
 
-	header.app-header {
-		padding: 10px 40px;
+	.logo-ufu {
+		margin-left: 10px;
+		text-align: center;
 	}
+	
+	.navigation {
+		display: block;
+	}
+	
+	.toggle-navigation {
+		display: none;
+	}
+
+	.fa-circle-user {
+		font-size: 3rem;
+	}
+}
+
+@media (min-width: 1200px) {
+	.app-header {
+		height: auto;
+		margin-top: 20px;
+
+		.app-header-item {
+			height: inherit;
+			display: block;
+		}
+	}
+
+	.logo-ufu {
+		margin-left: 20px;
+		text-align: left;
+	}
+	
+	.navigation {
+		display: block;
+	}
+	
+	.toggle-navigation {
+		display: none;
+	}
+
+	.fa-circle-user {
+		font-size: 2.5rem;
+	}
+}
 </style>

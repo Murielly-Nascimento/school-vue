@@ -12,9 +12,6 @@ export default {
 
 <style lang="scss" scoped>
 .logo-ufu {
-	margin-top: 30px;
-	margin-left: 10px;
-
 	img {
 		width: 420px;
     	height: auto;
