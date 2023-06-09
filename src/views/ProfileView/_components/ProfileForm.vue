@@ -24,8 +24,13 @@
 		</div>
 	</div>
 	<div class="d-flex flex-row justify-content-center">
-		<div class="btn btn-delete" role="button">
-			<b>Apagar Conta</b> <font-awesome-icon icon="fa-solid fa-trash" />
+		<div>
+			<button id="show-modal" @click="showModal = true" class="btn btn-delete">
+				Apagar Conta <font-awesome-icon icon="fa-solid fa-trash"/>
+			</button>
+			<Teleport to="body">
+				<modal :show="showModal" @close="showModal = false"></modal>
+			</Teleport>
 		</div>
 		<div class="btn btn-docs" role="button" to="">
 			<b>Meus documentos</b> <font-awesome-icon icon="fa-solid fa-arrow-right" />
@@ -36,15 +41,18 @@
 <script>
 import { getUserData } from '@/services';
 import RegisterIcon from '@/components/RegisterIcon.vue';
+import Modal from './Modal.vue'
 
 export default {
 	name: 'ProfileView',
 	components: {
-		RegisterIcon
+		RegisterIcon,
+		Modal
 	},
 	data() {
 		return {
 			userInfo: null,
+			showModal: false
 		}
 	},
 	created(){
