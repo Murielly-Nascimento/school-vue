@@ -10,7 +10,7 @@
 				</div>
 				<div class="modal-footer">
 					<button class="modal-default-button" @click="$emit('close')">
-						<font-awesome-icon icon="fa-solid fa-person-through-window" />
+						<font-awesome-icon icon="fa-solid fa-person-through-window"/>
 					</button>
 				</div>
 			</div>
@@ -28,7 +28,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .modal-mask {
 	position: fixed;
 	z-index: 9998;
