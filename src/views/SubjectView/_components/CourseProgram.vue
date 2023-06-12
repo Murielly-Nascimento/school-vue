@@ -4,6 +4,7 @@
 			image="@/assets/img/documento.png"
 			title="Arquivo"
 			text="Ficha de Componente Curricular"
+			:link= "subject.link"
 		></stretched-card>
 		<div class="row bordered">
 			<div class="col" id="descricao">
