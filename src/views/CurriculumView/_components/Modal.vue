@@ -19,15 +19,13 @@
 </template>
 
 <script>
-	import SubjectForm from './SubjectForm.vue';
-	export default {
-		components:{
-			SubjectForm,
-		},
-		props: {
-			show: Boolean
-		}
-	}
+import SubjectForm from './SubjectForm.vue';
+export default {
+    props: {
+        show: Boolean
+    },
+    components: { SubjectForm }
+}
 </script>
 
 <style>

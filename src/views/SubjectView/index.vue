@@ -20,7 +20,7 @@
 import { Layout } from '@/layout';
 import { STabs, STabItem } from '@/components';
 import { Documents, CourseProgram, AddResource } from './_components';
-import { getSubjectsById } from '@/mocks/mockSubjects';
+import { getSubjectById } from '@/services';
 
 export default {
 	name: 'SubjectView',
@@ -34,8 +34,29 @@ export default {
 	},	
 	data() {
 		return {
-			subject: getSubjectsById(this.$route.params.id),
+			subject: {
+				id: 0,
+				name: '',
+				period: 0,
+				description: '',
+				link: '',
+			},
+			messageError: '',
+			messageSuccess: '',
 		}	
-	},		
+	},
+	beforeCreate(){
+		getSubjectById(this.$route.params.id)
+			.then(response => {
+				const aux = response.data;
+				this.subject.id = aux.id,
+				this.subject.name = aux.name,
+				this.subject.period = aux.period,
+				this.subject.description = aux.goal,
+				this.subject.link = aux.curriculum,
+				console.log(this.subject);
+			})
+			.catch(error => console.warn(error));
+	},	
 }	
 </script>
