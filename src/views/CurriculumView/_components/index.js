@@ -1,1 +1,1 @@
-export { default as SubjectRegister } from './SubjectRegister.vue';
+export { default as Modal } from './Modal.vue';

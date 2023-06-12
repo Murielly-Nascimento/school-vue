@@ -1,6 +1,11 @@
 <template>
 	<Layout title="Grade Curricular">
-		<subject-register></subject-register>
+		<article>
+			<button id="show-modal" @click="showModal = true" class="btn btn-salvar">Cadastrar Disciplina</button>
+			<Teleport to="body">
+				<modal :show="showModal" @close="showModal = false" action="/subject"></modal>
+			</Teleport>
+		</article>
 		<article>
 			<s-accordion-list align="center">
 				<s-accordion
@@ -17,11 +22,11 @@
 </template>
 
 <script>
-import { SubjectRegister } from './_components';
 import { Layout } from '@/layout';
-import { SAccordion, SAccordionList, SButtonGroup } from '@/components';
-import { getSubjects } from '@/services';
 import groupBy from 'lodash/groupBy';
+import { Modal } from './_components';
+import { getSubjects } from '@/services';
+import { SAccordion, SAccordionList, SButtonGroup } from '@/components';
 
 export default {
 	name: 'CurriculumView',
@@ -30,11 +35,12 @@ export default {
 		SAccordion,
 		SAccordionList,
 		SButtonGroup,
-		SubjectRegister,
+		Modal,
 	},
 	data() {
 		return {
 			listOfSubjects: [],
+			showModal: false,
 		}
 	},
 	beforeCreate(){
@@ -64,4 +70,21 @@ export default {
 }
 </script>
 
+<style>
+.btn-salvar{
+	border-radius: 30px;
+	border-style: solid;
+	border-color: #38b6ff;
+	background-color: #0a223c;
+	color: #38b6ff;
+	margin-top: 5px;
+	padding: 10px;
+	width: 200px;
+	margin-right: 15px;
+}
 
+.btn-salvar:hover {
+	background-color: #38b6ff;
+	color: #010214;
+}
+</style>
