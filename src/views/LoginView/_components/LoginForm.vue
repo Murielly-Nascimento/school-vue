@@ -16,6 +16,10 @@
 				<b>Entrar</b> <font-awesome-icon icon="fa-solid fa-arrow-right" />
 			</button>
 		</div>
+
+		<div class="alert alert-danger mt-4 mx-2" role="alert" v-if="messageError.length">
+			{{ messageError }}
+		</div>
 	
 		<div class="row m-2">
 			<a to="/" class="link">
@@ -58,7 +62,8 @@ export default {
 			schema: {
 				email: 'required|email',
 				password: 'required',
-			}
+			},
+			messageError: '',
 		}
 	},
 	beforeCreate() {
@@ -90,6 +95,10 @@ export default {
             this.session.setEncodedItem('tk', data);
 			this.$router.push('/')
         },
+		onFail() {
+			this.submiting = false;
+			this.messageError = 'Usuário não cadastrado.';
+		}
 	},
 }
 </script>

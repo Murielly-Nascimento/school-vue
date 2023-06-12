@@ -26,7 +26,7 @@
 					</p>
 				</div>
 				<div>
-					<router-link class="btn btn-salvar" role="button" to="/gradeCurricular">
+					<router-link class="btn btn-salvar" role="button" to="/grade-curricular">
 						<b>Saiba Mais</b> <font-awesome-icon icon="fa-solid fa-arrow-right" />
 					</router-link>
 				</div>
