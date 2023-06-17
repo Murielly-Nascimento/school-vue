@@ -1,10 +1,12 @@
 <template>
 	<Layout title="Grade Curricular">
 		<article>
-			<button id="show-modal" @click="showModal = true" class="btn btn-salvar">Cadastrar Disciplina</button>
-			<Teleport to="body">
+			<button id="show-modal" @click="showModal = true" class="btn btn-salvar">
+				Cadastrar Disciplina
+			</button>
+			<teleport to="body">
 				<modal :show="showModal" @close="showModal = false" action="/subject"></modal>
-			</Teleport>
+			</teleport>
 		</article>
 		<article>
 			<s-accordion-list align="center">

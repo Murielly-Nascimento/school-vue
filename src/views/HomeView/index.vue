@@ -1,12 +1,12 @@
 <template>
 	<Layout>
 		<div class="row">
-			<div class="col-lg">
+			<div class="col-xl banner-col order-2 order-xl-1">
 				<div class="banner">
 					<img src="@/assets/img/computador.png" alt="computador" width="661" height="500">
 				</div>
 			</div>
-			<div class="col-lg-6 conteudo">
+			<div class="col-xl-6 conteudo-col order-1 order-xl-2">
 				<header class="titulo">
 					<h1><b>Sistemas de Informação</b></h1>
 					<hr>
@@ -39,18 +39,12 @@
 import Layout from '@/layout/Layout.vue';
 </script>
 
-<style>
-.conteudo {
+<style lang="scss">
+.conteudo-col {
 	margin-bottom: 10px;
 	padding: 50px;
 	text-align: justify;
 	color: white;
-}
-
-.banner {
-	position: fixed;
-	bottom: 0;
-	left:0;
 }
 
 .titulo h1 {
@@ -81,5 +75,27 @@ hr {
 .btn-salvar:hover {
 	background-color: #38b6ff;
 	color: #010214;
+}
+
+@media (max-width: 1199px) {
+	.banner {
+		position: static;
+		bottom: 0;
+		left:0;
+		display: flex;
+		justify-content: center;
+
+		img {
+			width: 100%;
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	.banner {
+		position: fixed;
+		bottom: 0;
+		left:0;
+	}
 }
 </style>
