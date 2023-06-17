@@ -3,7 +3,7 @@
 		<article>
 			<button id="show-modal" @click="showModal = true" class="btn btn-salvar">Cadastrar Disciplina</button>
 			<Teleport to="body">
-				<modal :show="showModal" @close="showModal = false" action="/subject"></modal>
+				<modal :show="showModal" @close="showModal = false"></modal>
 			</Teleport>
 		</article>
 		<article>
