@@ -12,6 +12,7 @@
 					:image="avatar[teacher.sex]"
 					:title="teacher.name"
 					:text="teacher.description"
+					:link="teacher.facomPageUrl"
 				></stretched-card>
 			</div>
 		</div>
