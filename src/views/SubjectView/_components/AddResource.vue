@@ -35,7 +35,11 @@
                         :key="fileType.id"
                     >
                         {{ fileType.label }}
-                        <s-upload :collection="'anexos_' + fileType.type" :accepted-file-types="[fileType.mimeTypes]"></s-upload>
+                        <s-upload
+                            :ref="'anexos_' + fileType.type + '_uploader'"
+                            :collection="'anexos_' + fileType.type"
+                            :accepted-file-types="[fileType.mimeTypes]"
+                        ></s-upload>
                     </div>
 				</div>
 			</div>
@@ -74,7 +78,7 @@ export default {
                 files: [],
             },
             selectedFileTypes: [],
-            mediaCollections: ['anexos'],
+            mediaCollections: ['anexos_pdf', 'anexos_image', 'anexos_video'],
             acceptedFileTypes: [
                 { id: 1, type: 'pdf', mimeTypes: 'application/pdf', label: 'PDF' },
                 { id: 2, type: 'image', mimeTypes: 'image/*', label: 'Image' },
@@ -87,7 +91,6 @@ export default {
             console.log(this.file.type);
         },
         formatType(type) {
-            console.log(type.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""));
             return type.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
         }
     },

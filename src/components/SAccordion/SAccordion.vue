@@ -73,13 +73,13 @@ export default {
     word-wrap: break-word;
 }
 
-@media (max-width: 576) {
+@media (max-width: 576px) {
     .s-accordion--ufu {
-        width: 90%;
+        width: 95%;
     }
 }
 
-@media (min-width: 576) and (max-width: 767px) {
+@media (min-width: 576px) and (max-width: 767px) {
     .s-accordion--ufu {
         width: 80%;
     }

@@ -9,12 +9,11 @@
 			</teleport>
 		</article>
 		<article>
-			<s-accordion-list align="center">
+			<s-accordion-list align="center" style="margin-top: 15px">
 				<s-accordion
 					v-for="group in linkGroup"
 					:key="group.id"
-					:title="group.period + 'º Período'"
-					
+					:title="group.period + 'º Período'"					
 				>
 					<s-button-group align="center" :links="group.subjects"></s-button-group>
 				</s-accordion>
@@ -24,8 +23,8 @@
 </template>
 
 <script>
-import { Layout } from '@/layout';
 import groupBy from 'lodash/groupBy';
+import { Layout } from '@/layout';
 import { Modal } from './_components';
 import { getSubjects } from '@/services';
 import { SAccordion, SAccordionList, SButtonGroup } from '@/components';

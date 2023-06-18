@@ -1,5 +1,5 @@
 <template>
-	<Layout>
+	<layout>
 		<div class="row">
 			<div class="col-xl banner-col order-2 order-xl-1">
 				<div class="banner">
@@ -32,7 +32,7 @@
 				</div>
 			</div>
 		</div>
-	</Layout>
+	</layout>
 </template>
 
 <script setup>
