@@ -23,7 +23,7 @@ const router = createRouter({
 			}
 		},
 		{
-			path: '/grade-curricular',
+			path: '/disciplinas',
 			name: 'GradeCurricular',
 			component: () => import('../views/CurriculumView/index.vue'),
 			meta: {

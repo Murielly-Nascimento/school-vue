@@ -1,5 +1,5 @@
 <template>
-	<Transition name="modal">
+	<transition name="modal">
 		<div v-if="show" class="modal-mask">
 			<div class="modal-container">
 				<div class="modal-header">
@@ -15,15 +15,13 @@
 				</div>
 			</div>
 		</div>
-	</Transition>
+	</transition>
 </template>
 
 <script>
 import SubjectForm from './SubjectForm.vue';
 export default {
-    props: {
-        show: Boolean
-    },
+    props: { show: Boolean },
     components: { SubjectForm }
 }
 </script>

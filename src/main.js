@@ -9,6 +9,7 @@ import App from '@/App.vue';
 import router from '@/router';
 
 import { initFontawesome } from '@/fontawesome';
+import { directiveConfig } from '@/directives';
 
 import '@/jquery';
 import '@/ajax';
@@ -27,6 +28,8 @@ app.use(pinia);
 app.use(VueCookies, { expires: '1d'});
 app.use(Notifications);
 app.use(VueTheMask);
+
+directiveConfig(app);
 
 app.mount('#app');
 

@@ -43,21 +43,25 @@ export default {
 <style lang="scss" scoped>
 .s-button-group--ufu {
     display: flex;
-    flex-direction: column;
+    // flex-direction: column;
     margin-top: 10px;
     margin-bottom: 10px;
 
     &.s-button-group__left--ufu {
         text-align: left;
-        align-items: flex-start;
+        justify-content: flex-start;
     }
     &.s-button-group__center--ufu {
         text-align: center;
-        align-items: center;
+        justify-content: center;
+    }
+    &.s-button-group__space-between--ufu {
+        text-align: left;
+        justify-content: space-between;
     }
     &.s-button-group__right--ufu {
         text-align: right;
-        align-items: flex-end;
+        justify-content: flex-end;
     }
 
 	a, button {

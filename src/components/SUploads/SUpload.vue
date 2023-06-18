@@ -250,6 +250,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    @import url('node_modules/dropzone/dist/dropzone.css');
-    @import 'https://fonts.googleapis.com/css?family=Roboto';
+@import 'https://fonts.googleapis.com/css?family=Roboto';
 </style>

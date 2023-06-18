@@ -18,7 +18,7 @@
 		</div>
 		<div>
 			<select v-model="form.period" class="form-select" aria-label="Lista de períodos" >
-				<option selected>Períodos</option>
+				<option value="" disabled selected hidden>Períodos</option>
 				<option value="1">1º Período</option>
 				<option value="2">2º Períodoo</option>
 				<option value="3">3º Período</option>
@@ -50,53 +50,81 @@
 
 <script>
 import { AppForm } from '@/mixins';
+import { SMultiselect } from '@/components';
 import { Form, Field, ErrorMessage } from 'vee-validate';
 
 export default {
 	mixins: [AppForm],
 	components: {
-    Field,
-    VeeForm: Form,
-    ErrorMessage,
-},
-data() {
-	return {
-		form: {
-			name: '',
-			goal: '',
-			curriculum: '',
-			ch_total: '',
-			period: '',
-		},
-		messageError: '',
-		messageSuccess: '',
-	}
-},
-methods: {
-	validarCampo(value){
-		if(!value){
-			return 'Esse campo é obrigatório.';
+		Field,
+		VeeForm: Form,
+		ErrorMessage,
+		SMultiselect,
+	},
+	data() {
+		return {
+			form: {
+				name: '',
+				goal: '',
+				curriculum: '',
+				ch_total: '',
+				period: '',
+			},
+			messageError: '',
+			messageSuccess: '',
 		}
-		return true;
 	},
-	onSuccess(data) {
-		this.submiting = false;
-		this.messageSuccess = 'Cadastro Efetuado com sucesso';
-		this.$router.go()
+	methods: {
+		validarCampo(value){
+			if(!value){
+				return 'Esse campo é obrigatório.';
+			}
+			return true;
+		},
+		onSuccess(data) {
+			this.submiting = false;
+			this.messageSuccess = 'Cadastro Efetuado com sucesso';
+			this.$router.go()
+		},
+		onFail() {
+			this.submiting = false;
+			this.messageError = 'Erro ao cadastrar';
+		}
 	},
-	onFail() {
-		this.submiting = false;
-		this.messageError = 'Erro ao cadastrar';
-	}
-},
 };
 </script>
+<!-- 
+<style lang="scss">
+.multiselect__tags {
+	min-height: 58px;
+	display: block;
+	padding: 8px 40px 0 8px;
+	border-radius: 0;
+	border: none;
+	background: #38b6ff;
+	font-size: 14px;
 
-<style scoped>
+	.multiselect__placeholder {
+		color: #010214 !important;
+    	margin: {
+			top: 10px;
+			bottom: 10px;
+		}
+	}
+
+	.multiselect__input {
+		background: #38b6ff;
+		color: #010214;
+	}
+}
+
+</style> -->
+
+<style lang="scss" scoped>
 	.s-form__field--ufu, .form-select{
 		background-color: #38b6ff;
 		padding: 15px;
-		width: 97%;
+		width: 100%;
 		border-radius: 1px;
 		border-color: #010214;
 		margin-top: 3px;

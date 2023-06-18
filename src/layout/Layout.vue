@@ -1,6 +1,6 @@
 <template>
     <div>
-		<nav-bar></nav-bar>
+		<app-header></app-header>
 		<main class="app-body">
 			<div class="container-fluid app-container">
 				<div class="app-title" v-if="title.length">
@@ -13,19 +13,19 @@
 </template>
 
 <script>
-import NavBar from './NavBar.vue';
+import AppHeader from './AppHeader.vue';
 import '@/assets/scss/main.scss';
 
 export default {
 	components: {
-		NavBar,
+		AppHeader,
 	},
 	props: {
 		title: {
 			type: String,
 			default: '',
 		}
-	}
+	},
 }
 </script>
 

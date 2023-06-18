@@ -1,13 +1,13 @@
 <template>
     <form @submit.prevent="onSubmit" :action="action">
         <div class="row">
-            <div class="col">
+            <div class="col-lg">
                 <div class="form-floating m-2">
                     <input type="text" class="form-control" name="nome" placeholder="Nome" v-model="form.nome" />
                     <label for="nome"><b>Nome</b></label>
                 </div>
             </div>
-            <div class="col">
+            <div class="col-lg">
                 <div class="form-floating m-2">
                     <input type="email" class="form-control" name="email" placeholder="Email Institucional" v-model="form.email" />
                     <label for="email"><b>Email Institucional</b></label>

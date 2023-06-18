@@ -2,18 +2,20 @@
     <div class="container">
 		<form class="form-create">
 			<div class="row">
-				<div class="col">
+				<div class="col-lg">
 					<div class="form-floating">
 						<input type="text" class="form-control" id="nome" placeholder="Nome">
 						<label for="nome">Nome</label>
 					</div>
 				</div>
-				<div class="col">
+				<div class="col-lg">
 					<div class="form-floating">
                         <s-multiselect
-                            v-model="form.file.type"
+                            v-model="selectedFileTypes"
                             :options="acceptedFileTypes"
+                            :label="'label'"
                             @input="__log"
+                            multiple
                         ></s-multiselect>
 					</div>
 				</div>
@@ -27,8 +29,17 @@
 			</div>
 			<div class="row">
 				<div class="col">
-					<div class="form-floating">
-                        <s-upload collection="anexos"></s-upload>
+					<div
+                        v-for="fileType in selectedFileTypes"
+                        :class="'form-floating'"
+                        :key="fileType.id"
+                    >
+                        {{ fileType.label }}
+                        <s-upload
+                            :ref="'anexos_' + fileType.type + '_uploader'"
+                            :collection="'anexos_' + fileType.type"
+                            :accepted-file-types="[fileType.mimeTypes]"
+                        ></s-upload>
                     </div>
 				</div>
 			</div>
@@ -64,16 +75,14 @@ export default {
         return {
             form: {
                 description: '',
-                file: {
-                    type: '',
-                    bin: undefined,
-                },
+                files: [],
             },
-            mediaCollections: ['anexos'],
+            selectedFileTypes: [],
+            mediaCollections: ['anexos_pdf', 'anexos_image', 'anexos_video'],
             acceptedFileTypes: [
-                'PDF',
-                'Image',
-                'Vídeo',
+                { id: 1, type: 'pdf', mimeTypes: 'application/pdf', label: 'PDF' },
+                { id: 2, type: 'image', mimeTypes: 'image/*', label: 'Image' },
+                { id: 3, type: 'video', mimeTypes: 'video/*', label: 'Vídeo' },
             ],
         }
     },
@@ -81,6 +90,9 @@ export default {
         __log() {
             console.log(this.file.type);
         },
+        formatType(type) {
+            return type.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        }
     },
 }
 </script>
