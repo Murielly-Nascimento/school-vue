@@ -45,7 +45,7 @@
 			</div>
 			<div class="row btn-enviar">
 				<div class="col">
-					<button class="btn" role="button" href="#">
+					<button class="btn btn-salvar" role="button" href="#">
 						<b>Enviar</b> 
 					</button>
 				</div>
@@ -98,5 +98,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.btn-salvar{
+	border-radius: 30px;
+	border-style: solid;
+	border-color: #38b6ff;
+	background-color: #0a223c;
+	color: #38b6ff;
+	margin-top: 5px;
+	padding: 10px;
+	width: 200px;
+	margin-right: 15px;
+}
 
+.btn-salvar:hover {
+	background-color: #38b6ff;
+	color: #010214;
+}
 </style>

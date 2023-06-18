@@ -9,7 +9,7 @@
 					<course-program :subject="subject"></course-program>
 				</s-tab-item>
 				<s-tab-item title="Adicionar">
-					<add-resource :subject="subject" action="/"></add-resource>
+					<add-resource :subject="subject" action="/resources"></add-resource>
 				</s-tab-item>
 			</s-tabs>
 		</article>
