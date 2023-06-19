@@ -38,8 +38,8 @@ export default {
 	},
 	data() {
 		return {
-			documentos: [],
 			scroller: null,
+			documentos: [],
 			collection: [],
 			pagination: {
 				page: 1,
@@ -67,7 +67,7 @@ export default {
 	watch: {
 		collection(newValues) {
             if (Array.isArray(newValues)) {
-                this.documentos = this.sort(this.concatDocumentos(newValues));
+                this.documentos = (this.concatDocumentos(newValues));
             }
 		}
 	},

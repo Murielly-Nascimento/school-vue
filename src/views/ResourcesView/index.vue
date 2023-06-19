@@ -33,7 +33,7 @@
                     <div class="mb-4" v-if="videos.length">
                         <h3>Vídeos</h3>
                         <div v-for="media in videos">
-                            <video controls>
+                            <video style="max-width: 100%;" controls>
                                 <source :src="media.url" :type="media.mime_type">
                                 Your browser does not support the video.
                             </video>
@@ -42,7 +42,7 @@
                     <div class="mb-4" v-if="pdfs.length">
                         <h3>PDF's</h3>
                         <div v-for="media in pdfs">
-                            <a :href="media.url">
+                            <a :href="media.url" target="_blank">
                                 <font-awesome-icon
                                 style="margin-right: 10px;"
                                     :icon="['far', 'file-pdf']"
@@ -83,7 +83,6 @@ export default {
         medias() {
             return this.resource?.media?.map(media => {
                 media.metadata = JSON.parse(media.metadata);
-                media.url = '/' + media.filename;
                 media.type = media.mime_type.replace(/.*\//, '');
 
                 return media;

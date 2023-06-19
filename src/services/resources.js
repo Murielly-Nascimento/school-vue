@@ -34,9 +34,8 @@ export const getResources = () => {
 export const getResourcesPage = ({ pagination, filters = {} }) => {
     const options = {
         params: {    
-            // orderBy: pagination.orderBy,
-            // orderDirection: pagination.orderDirection,
-            order: orders[pagination.orderDirection],
+            orderBy: pagination.orderBy,
+            orderDirection: pagination.orderDirection.toUpperCase(),
             page: pagination.page,
             take: pagination.per_page,
         }

@@ -65,7 +65,7 @@
 <script>
 import { AppForm } from '@/mixins';
 import { SMultiselect, STextArea, SUpload, SSubmitButton } from '@/components';
-import { succesIcon } from '@/assets/icons/success';
+// import { succesIcon } from '@/assets/icons/success';
 
 export default {
     name: 'AddResource',
