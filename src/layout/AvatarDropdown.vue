@@ -23,7 +23,9 @@
 import { logout } from '@/services';
 export default {
     name: 'AvatarDropdown',
-    components: { logout }
+	methods: {
+		logout
+	},
 }
 </script>
 

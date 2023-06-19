@@ -91,7 +91,7 @@ export default {
 				ufuRegister: '',
 				email: '',
 				password: '',
-				sex:'',
+				sex:'1',
 			},
 			messageError: '',
 			messageSuccess: '',

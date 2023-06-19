@@ -1,5 +1,5 @@
 <template>
-	<div :class="'s-wires__' + side + '--ufu'">
+	<div :class="['s-wires--ufu', 's-wires__' + side + '--ufu']">
 		<s-image :source="sources[side]" alt="fios" width="340" height="160" />
 	</div>
 </template>
@@ -38,6 +38,9 @@ export default {
 </script>
 
 <style>
+.s-wires--ufu {
+    display: none;
+}
 .s-wires__left--ufu{
     position: fixed;
     top: 0;
@@ -47,5 +50,10 @@ export default {
     position: fixed;
     bottom: 0;
     right: 0;
+}
+@media (min-width: 1200px) {
+    .s-wires--ufu {
+        display: block;
+    }
 }
 </style>

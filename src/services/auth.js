@@ -38,7 +38,7 @@ export const getUser = async () => {
 
 
 export const logout = () => {
-    sessionStorage.removeItem('tk');
+    localStorage.removeItem('tk');
     // window.router.push('/login');
     window.location.replace('/login');
 }
