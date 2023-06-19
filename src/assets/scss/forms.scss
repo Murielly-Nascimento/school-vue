@@ -10,3 +10,25 @@
         color: red;
     }
 }
+
+.btn-submit--default {
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: #38b6ff;
+    padding: 10px;
+    text-align: center;
+    width: 150px;
+}
+
+.btn-submit--rounded-outline {
+    border-radius: 30px;
+    border-style: solid;
+    border-color: #38b6ff;
+    background-color: #0a223c;
+    color: #38b6ff;
+    margin-top: 5px;
+    padding: 10px;
+    width: 200px;
+    margin-right: 15px;
+}

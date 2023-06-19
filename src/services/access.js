@@ -1,10 +1,10 @@
-import { useSession } from "@/helpers";
+import { useStorage } from "@/helpers";
 import { getUser } from '@/services';
 import { useUser } from '@/store';
 import { UnauthorizedException } from "@/errors";
 import { refresh } from '@/services';
 
-const session = useSession();
+const session = useStorage();
 
 export const access = {
 	token: null,

@@ -5,10 +5,10 @@
         </div>
         <div class="col-lg-8">
             <h3 class="text-white mt-4 mt-lg-0">{{ title }}</h3>
-            <p class="text-white text-muted">{{ text }}</p>
+            <p class="text-white text-muted" v-html="text"></p>
         </div>
         <div class="col-lg-2 d-flex align-items-center justify-content-center">
-            <a :href="link" class="link-icon" target="_blank">
+            <a class="link-icon" :href="link" :target="target">
                 <font-awesome-icon :icon="'fa-solid ' + icon" />
             </a>
         </div>
@@ -42,6 +42,10 @@ export default {
         icon: {
             type: String,
             default: 'fa-link',
+        },
+        target: {
+            type: String,
+            default: "_blank"
         }
     },
 };

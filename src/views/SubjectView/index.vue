@@ -1,7 +1,7 @@
 <template>
 	<layout :title="subject.name">
-		<article>
-			<s-tabs inner-class="mt-5">
+		<article v-if="!emptySubject">
+			<s-tabs inner-class="my-5">
 				<s-tab-item title="Documentos">
 					<documents :subject="subject"></documents>
 				</s-tab-item>
@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import _ from 'lodash';
 import { Layout } from '@/layout';
 import { STabs, STabItem } from '@/components';
 import { Documents, CourseProgram, AddResource } from './_components';
@@ -34,27 +35,27 @@ export default {
 	},	
 	data() {
 		return {
-			subject: {
-				id: 0,
-				name: '',
-				period: 0,
-				description: '',
-				link: '',
-			},
+			subject: {},
 			messageError: '',
 			messageSuccess: '',
 		}	
 	},
-	beforeCreate(){
+	computed: {
+		emptySubject() {
+			return _.isEmpty(this.subject);
+		}
+	},
+	created(){
 		getSubjectById(this.$route.params.id)
 			.then(response => {
 				const aux = response.data;
-				this.subject.id = aux.id,
-				this.subject.name = aux.name,
-				this.subject.period = aux.period,
-				this.subject.description = aux.goal,
-				this.subject.link = aux.curriculum,
-				console.log(this.subject);
+				this.subject = {
+					id: aux.id,
+					name: aux.name,
+					period: aux.period,
+					description: aux.goal,
+					link: aux.curriculum,
+				}
 			})
 			.catch(error => console.warn(error));
 	},	

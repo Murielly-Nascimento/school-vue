@@ -38,7 +38,7 @@
 <script>
 import { AppForm } from '@/mixins';
 import { Form, Field, ErrorMessage, defineRule } from 'vee-validate';
-import { useSession } from '@/helpers'
+import { useStorage } from '@/helpers'
 import { getUser } from '@/services'
 
 export default {
@@ -50,7 +50,7 @@ export default {
 		ErrorMessage,
 	},
 	setup() {
-		const session = useSession();
+		const session = useStorage();
 		return { session };
 	},
 	data() {
