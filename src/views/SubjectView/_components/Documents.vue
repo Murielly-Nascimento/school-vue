@@ -6,6 +6,7 @@
 				:title="documento.title"
 				:text="documento.description"
 				:link="'/recursos/' + documento.id"
+				:image="`@/assets/img/documento.png`"
 			></stretched-card>
 		</div>
 		<div class="loading hidden">
