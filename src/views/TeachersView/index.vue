@@ -36,8 +36,8 @@ data() {
 	return {
 		listOfTeachers: [],
 		avatar: {
-			"2": `@/assets/img/icon-gentleman.png`,
-			"1": `@/assets/img/icon-lady.png`,
+			"Male": `@/assets/img/icon-gentleman.png`,
+			"Female": `@/assets/img/icon-lady.png`,
 		},
 		showModal: false,
 	};
