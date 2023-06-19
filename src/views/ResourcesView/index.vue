@@ -11,7 +11,7 @@
                     <div class="mb-4" v-if="images.length">
                         <h3>Imagens</h3>
                         <div class="galery-container">
-                            <div class="galery-sidebar">
+                            <!--<div class="galery-sidebar">
                                 <div
                                     v-for="image in images"
                                     class="galery-item"
@@ -24,11 +24,11 @@
                                     class="galery-item"
                                     :style="'background-image: url(' + (selectedImage?.url || defaultImage) + ')'"
                                 ></div>
-                            </div>
+                            </div>-->
                         </div>
-                        <!-- <div v-for="media in images">
-                            <img :src="media.url" :alt="media.metadata.name">
-                        </div> -->
+                        <div v-for="media in images">
+                            <img :src="media.disk" :alt="media.metadata.name">
+                        </div>
                     </div>
                     <div class="mb-4" v-if="videos.length">
                         <h3>Vídeos</h3>
@@ -42,7 +42,7 @@
                     <div class="mb-4" v-if="pdfs.length">
                         <h3>PDF's</h3>
                         <div v-for="media in pdfs">
-                            <a :href="media.url" target="_blank">
+                            <a :href="media.disk" target="_blank">
                                 <font-awesome-icon
                                 style="margin-right: 10px;"
                                     :icon="['far', 'file-pdf']"
