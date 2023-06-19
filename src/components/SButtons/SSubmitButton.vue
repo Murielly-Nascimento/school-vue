@@ -1,7 +1,7 @@
 <template>
     <button
         type="submit"
-        class="btn btn-submit"
+        :class="['btn', 'btn-submit', btnStyle]"
         :disabled="$parent.submiting"
     >
         <b>{{ title }}</b> 
@@ -14,6 +14,15 @@ export default {
         title: {
             type: String,
             default: 'Enviar',
+        },
+        typeName: {
+            type: String,
+            default: 'default',
+        }
+    },
+    computed: {
+        btnStyle() {
+            return 'btn-submit--' + this.typeName;
         }
     }
 }

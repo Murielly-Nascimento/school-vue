@@ -1,8 +1,8 @@
 import axios from "axios";
-import { useSession } from "@/helpers";
+import { useStorage } from "@/helpers";
 
 const env = import.meta.env;
-const session = useSession();
+const session = useStorage();
 
 export const baseURL = env?.VITE_API_URL ? env?.VITE_API_URL : "https://localhost:3000";
   

@@ -4,6 +4,8 @@ import { localize } from '@vee-validate/i18n';
 import { api } from '@/api';
 import pt_BR from '@vee-validate/i18n/dist/locale/pt_BR.json';
 
+const PATH_KEY = 'filename'
+
 export default {
     setup() {
     },
@@ -71,18 +73,31 @@ export default {
     methods: {
         getPostData() {
             if (this.mediaCollections) {
+                if (!Array.isArray(this.form.medias)) {
+                    this.form.medias = [];
+                }
                 this.mediaCollections.forEach(collection => {
                     if (this.form[collection]) {
                         console.warn("MediaUploader warning: Media input must have a unique name, '" + collection + "' is already defined in regular inputs.");
                     }
         
                     if (this.$refs[collection + '_uploader']) {
-                        this.form[collection] = this.$refs[collection + '_uploader'].getFiles();
+                        this.form[collection] = this.getUploaderFiles(collection + '_uploader');
+                        this.form.medias = this.mergeWithMedias(this.form[collection]);
                     }
                 });
             }
       
             return this.form;
+        },
+        getUploaderFiles(name) {
+            return _.first(this.$refs[name]).getFiles();
+        },
+        mergeWithMedias(data) {
+            return this.removeDuplicates([ ...this.form.medias, ...data ]);
+        },
+        removeDuplicates(data) {
+            return _.uniqBy(data, PATH_KEY);
         },
 		onSubmit() {
             this.submiting = true;

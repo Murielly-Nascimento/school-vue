@@ -25,7 +25,7 @@
 
 <script>
 import _ from 'lodash';
-import { useSession } from "@/helpers";
+import { useStorage } from "@/helpers";
 import { baseURL } from '@/api'
 import SDropzone from './SDropzone.vue'
 
@@ -35,7 +35,7 @@ export default {
         SDropzone
     },
 	setup() {
-		const session = useSession();
+		const session = useStorage();
 		return { session };
 	},
     props: {
@@ -225,19 +225,20 @@ export default {
             });
 
             _.each(this.$refs[this.collection].getAcceptedFiles(), file => {
-                var response = JSON.parse(file.xhr.response);
+                const response = JSON.parse(file.xhr.response);
 
                 if (response.path) {
                     files.push({
                         id: file.id,
                         collection_name: this.collection,
-                        path: response.path,
+                        filename: response.path,
+                        mime_type: file.type,
                         action: file.deleted ? 'delete' : 'add',
-                        meta_data: {
+                        metadata: {
                             name: file.name,
-                            file_name: file.name,
                             width: file.width,
-                            height: file.height
+                            height: file.height,
+                            size: file.size
                         }
                     });
                 }

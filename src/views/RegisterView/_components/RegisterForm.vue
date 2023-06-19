@@ -68,7 +68,7 @@
 <script>
 import { AppForm } from '@/mixins';
 import { Form, Field, ErrorMessage } from 'vee-validate';
-import { useSession } from '@/helpers'
+import { useStorage } from '@/helpers'
 import { login } from '@/services'
 
 
@@ -80,7 +80,7 @@ export default {
     ErrorMessage,
 },
 	setup() {
-		const session = useSession();
+		const session = useStorage();
 		return { session };
 	},
 	data() {

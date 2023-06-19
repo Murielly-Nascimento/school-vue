@@ -40,6 +40,15 @@ const router = createRouter({
 			},
 		},
 		{
+			path: '/recursos/:id',
+			name: 'Resources',
+			component: () => import('../views/ResourcesView/index.vue'),
+			meta: {
+				reload: true,
+				middleware: AuthMiddleware,
+			},
+		},
+		{
 			path: '/docentes',
 			name: 'Docentes',
 			component: () => import('../views/TeachersView/index.vue'),

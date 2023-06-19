@@ -1,0 +1,19 @@
+.flashing-text {
+	font-size: 1.75em;
+	font-family: serif;
+	color:#f0f0f5;
+	text-align: center;
+	animation: flashing 1s linear infinite;
+}
+	
+@keyframes flashing {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 0.7;
+	}
+	100% {
+		opacity: 0;
+	}
+}

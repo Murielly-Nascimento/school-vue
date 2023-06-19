@@ -44,7 +44,7 @@ export default {
             type: Boolean,
             default: true
         },
-        maxFileSizeInMB: {
+        maxFileSizeInMb: {
             type: Number,
             default: 2
         },
@@ -269,13 +269,14 @@ export default {
             Dropzone.confirm = this.getProp(this.confirm, this.dropzoneOptions.confirm);
         }
         let element = document.getElementById(this.id);
+        console.log(this.maxFileSizeInMb);
         this.dropzone = new Dropzone(element, {
             clickable                   : this.getProp(this.clickable,this.dropzoneOptions.clickable),
             paramName                   : this.getProp(this.paramName,this.dropzoneOptions.paramName),
             thumbnailWidth              : this.getProp(this.thumbnailWidth,this.dropzoneOptions.thumbnailWidth),
             thumbnailHeight             : this.getProp(this.thumbnailHeight,this.dropzoneOptions.thumbnailHeight),
             maxFiles                    : this.getProp(this.maxNumberOfFiles,this.dropzoneOptions.maxNumberOfFiles),
-            maxFilesize                 : this.getProp(this.maxFileSizeInMB,this.dropzoneOptions.maxFileSizeInMB),
+            maxFilesize                 : this.getProp(this.maxFileSizeInMb,this.dropzoneOptions.maxFileSizeInMb),
             addRemoveLinks              : this.getProp(this.showRemoveLink,this.dropzoneOptions.showRemoveLink),
             acceptedFiles               : this.getProp(this.acceptedFileTypes,this.dropzoneOptions.acceptedFileTypes),
             autoProcessQueue            : this.getProp(this.autoProcessQueue,this.dropzoneOptions.autoProcessQueue),

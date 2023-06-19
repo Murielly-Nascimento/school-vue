@@ -1,10 +1,15 @@
 @import './base.scss';
 @import './fonts.scss';
 @import './forms.scss';
-
+@import './listing.scss';
+@import './galery.scss';
 
 #app {
 	overflow: hidden;
+}
+
+.hidden {
+	display: none;
 }
 
 body {
