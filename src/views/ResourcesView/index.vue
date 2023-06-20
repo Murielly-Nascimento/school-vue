@@ -3,6 +3,10 @@
 		<article>
             <div>
                 <div class="mb-4">
+                    <router-link :to="'/disciplina/' + resource.subjectId">Voltar para Disciplinas</router-link>
+                </div>
+
+                <div class="mb-4">
                     <h3>Descrição</h3>
                     <div v-html="resource.description"></div>
                 </div>
