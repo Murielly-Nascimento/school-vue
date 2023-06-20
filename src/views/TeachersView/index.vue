@@ -35,10 +35,14 @@ export default {
 data() {
 	return {
 		listOfTeachers: [],
-		avatar: {
-			"Male": `@/assets/img/icon-gentleman.png`,
-			"Female": `@/assets/img/icon-lady.png`,
-		},
+		// avatar: {
+		// 	"Male": `@/assets/img/icon-gentleman.png`,
+		// 	"Female": `@/assets/img/icon-lady.png`,
+		// },
+		avatar: [
+			`@/assets/img/icon-gentleman.png`,
+			`@/assets/img/icon-lady.png`,
+		],
 		showModal: false,
 	};
 },

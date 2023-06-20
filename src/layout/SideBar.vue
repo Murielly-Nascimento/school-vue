@@ -89,7 +89,7 @@ export default {
         display: block;
         background-color: #050b12;
         position: fixed!important;
-        z-index: 1;
+        z-index: 999;
         overflow: auto;
         padding: 10px 0;
         // animation: animateright .5s;
